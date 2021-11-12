@@ -77,7 +77,7 @@ public class CouponFragment extends Fragment {
         // Required empty public constructor
     }
 
-//    @Override
+    //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        if (getArguments() != null) {
@@ -171,6 +171,7 @@ public class CouponFragment extends Fragment {
                         ImageButton copy_button = (ImageButton) root.findViewById(R.id.copy_button);
                         TextView coupon_code_title = (TextView) root.findViewById(R.id.coupon_code_title);
                         TextView coupon_code_text = (TextView) root.findViewById(R.id.coupon_code_text);
+                        LinearLayout coupon_code_container = (LinearLayout) root.findViewById(R.id.coupon_code_container);
 
                         redeem_button.setVisibility(View.GONE);
                         screenshot_button.setVisibility(View.VISIBLE);
@@ -178,6 +179,7 @@ public class CouponFragment extends Fragment {
                         coupon_code_title.setVisibility(View.VISIBLE);
                         coupon_code_text.setVisibility(View.VISIBLE);
                         coupon_code_text.setText("CS465ISAWESOME");
+                        coupon_code_container.setVisibility(View.VISIBLE);
                     }
                 });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
