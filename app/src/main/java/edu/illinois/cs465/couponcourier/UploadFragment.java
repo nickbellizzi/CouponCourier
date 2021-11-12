@@ -1,5 +1,6 @@
 package edu.illinois.cs465.couponcourier;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,9 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -76,9 +81,20 @@ public class UploadFragment extends Fragment {
         Spinner categorySpinner = (Spinner) view.findViewById(R.id.categorySpinner);
         Spinner typeSpinner = (Spinner) view.findViewById(R.id.typeSpinner);
         EditText expDatePicker = (EditText) view.findViewById(R.id.expDatePicker);
+        Button uploadButton = (Button) view.findViewById(R.id.upload_button);
+        CheckBox inStoreCheckbox = (CheckBox) view.findViewById(R.id.inStoreCheckbox);
+        CheckBox onlineCheckbox = (CheckBox) view.findViewById(R.id.onlineCheckbox);
+        CheckBox militaryIdCheckbox = (CheckBox) view.findViewById(R.id.militaryIdCheckbox);
+        CheckBox stackedCheckbox = (CheckBox) view.findViewById(R.id.stackedCheckbox);
 
         Calendar calendar = Calendar.getInstance();
 
+
+        uploadButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                confirmUpload(view);
+            }
+        });
 
         DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -120,5 +136,27 @@ public class UploadFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         expDatePicker.setText(sdf.format(calendar.getTime()));
+    }
+
+    public void confirmUpload(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+        builder.setTitle("Have you verified all the information is correct?");
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Button uploadButton = (Button) view.findViewById(R.id.upload_button);
+
+                    }
+                });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
