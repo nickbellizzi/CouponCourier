@@ -11,8 +11,10 @@ import org.json.JSONObject;
 public class Coupon {
     public int couponId = 0;
     public String brand;
+    public String product;
     public List<String> category = new ArrayList<>();
     public String type;
+    public String deal;
     public String code;
     public String expDate;
     public String uploadDate;
@@ -23,9 +25,11 @@ public class Coupon {
         try {
             this.couponId = jsonCoupon.getInt("CouponId");
             this.brand = jsonCoupon.getString("Brand");
+            this.product = jsonCoupon.getString("ProductName");
             this.category = getCategoryList(jsonCoupon.getJSONArray("Category"));
             this.type = jsonCoupon.getString("Type");
             this.code = jsonCoupon.getString("Code");
+            this.deal = jsonCoupon.getString("Deal");
             this.expDate = jsonCoupon.getString("ExpDate");
             this.uploadDate = jsonCoupon.getString("UploadDate");
             this.additionalInfo = jsonCoupon.getString("Additional");

@@ -87,7 +87,7 @@ public class SearchFragment extends Fragment {
             List<String> listContents = new ArrayList<String>(len);
             for (int i = 0; i < len; ++i) {
                 JSONObject jObj = jArr.getJSONObject(i);
-                String brand = jObj.getString("Brand");
+                String brand = jObj.getString("ProductName");
                 Log.d("Populating", brand);
                 listContents.add(brand);
             }
