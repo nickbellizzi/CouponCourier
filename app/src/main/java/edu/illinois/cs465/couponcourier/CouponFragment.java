@@ -96,10 +96,15 @@ public class CouponFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        String brand = "Nike";
-        String discount = "20% Off";
-        String expiration = "12/31/2021";
-        String restrictions = "blah blah blah blah blah";
+        String brand = "No brand listed";
+        String discount = "No discount listed";
+        String expiration = "None listed";
+        String restrictions = "No additional restrictions listed!";
+        Boolean in_store_bool = Boolean.FALSE;
+        Boolean online_bool = Boolean.FALSE;
+        Boolean military_bool = Boolean.FALSE;
+        Boolean stackable_bool = Boolean.FALSE;
+        String brand_logo_img = "@drawable/nike_logo";
         JSONArray jArr = MainActivity.jsonArr;
         try {
             JSONObject jObj = jArr.getJSONObject(0);
@@ -107,11 +112,18 @@ public class CouponFragment extends Fragment {
             brand = jObj.getString("Brand");
             discount = jObj.getString("Type");
             expiration = jObj.getString("ExpDate");
-            restrictions = jObj.getJSONObject("Attributes").getString("Additional");
+            in_store_bool = jObj.getJSONObject("Attributes").getBoolean("In-Store");
+            online_bool = jObj.getJSONObject("Attributes").getBoolean("Online");
+            military_bool = jObj.getJSONObject("Attributes").getBoolean("MilitaryID");
+            stackable_bool = jObj.getJSONObject("Attributes").getBoolean("Stackable");
+            if (!jObj.getString("ExpDate").isEmpty()) expiration = jObj.getString("ExpDate");
+            if (!jObj.getString("Brand").isEmpty()) brand = jObj.getString("Brand");
+            if (!jObj.getString("Type").isEmpty()) discount = jObj.getString("Type");
+            if (!jObj.getJSONObject("Attributes").getString("Additional").isEmpty()) restrictions = jObj.getJSONObject("Attributes").getString("Additional");
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        jObj.getString("Brand")
+
 
 
         // Inflate the layout for this fragment
@@ -141,7 +153,8 @@ public class CouponFragment extends Fragment {
         });
 
         ImageView couponLogo =(ImageView) root.findViewById(R.id.couponLogo);
-        couponLogo.setImageResource(getResources().getIdentifier("@drawable/nike_logo", null, getActivity().getPackageName()));
+        String img = (String) MainActivity.logos.get(brand);
+        couponLogo.setImageResource(getResources().getIdentifier(img, null, getActivity().getPackageName()));
 
         LinearLayout instore_block =(LinearLayout) root.findViewById(R.id.instore_block);
         LinearLayout online_block =(LinearLayout) root.findViewById(R.id.online_block);
@@ -155,10 +168,10 @@ public class CouponFragment extends Fragment {
         discount_text.setText(discount);
         exp_text.setText("Exp. " + expiration);
 
-        instore_block.setVisibility(View.VISIBLE);
-        online_block.setVisibility(View.VISIBLE);
-        military_block.setVisibility(View.VISIBLE);
-        stackable_block.setVisibility(View.VISIBLE);
+        if (in_store_bool) instore_block.setVisibility(View.VISIBLE);
+        if (online_bool) online_block.setVisibility(View.VISIBLE);
+        if (military_bool) military_block.setVisibility(View.VISIBLE);
+        if (stackable_bool) stackable_block.setVisibility(View.VISIBLE);
 
         TextView additional_restrictions = (TextView) root.findViewById(R.id.additional_restrictions);
         additional_restrictions.setText(restrictions);

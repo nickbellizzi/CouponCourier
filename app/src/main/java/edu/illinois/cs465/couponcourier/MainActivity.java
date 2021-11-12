@@ -17,11 +17,14 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     static protected ArrayList<Coupon> couponCollection = new ArrayList<>();
     static protected JSONArray jsonArr = null;
+    static protected Map logos = new HashMap();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
-
+    protected void populateLogoMap() {
+        logos.put("Adidas", "@drawable/adidas_logo");
+        logos.put("Crocs", "@drawable/crocs_logo");
+        logos.put("Jordans", "@drawable/jordan_logo");
+        logos.put("New Balance", "@drawable/new_balance_logo");
+        logos.put("Nike", "@drawable/nike_logo");
+        logos.put("Asics", "@drawable/asics_logo");
+        logos.put("Under Armor", "@drawable/under_armour_logo");
+        logos.put("Vans", "@drawable/vans_logo");
+//        logos.put("Adidas", "@drawable/nike_logo");
+    }
     protected String loadJSONFromAsset() {
         String jsonStr = "";
         try {
@@ -75,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         // Load the JSON file and fill local databases.
         loadJSONFromAsset();
+        populateLogoMap();
         for (int i = 0; i < jsonArr.length(); ++i) {
             try {
                 JSONObject jsonCoupon = jsonArr.getJSONObject(i);
