@@ -107,7 +107,7 @@ public class CouponFragment extends Fragment {
         String brand_logo_img = "@drawable/nike_logo";
         JSONArray jArr = MainActivity.jsonArr;
         try {
-            JSONObject jObj = jArr.getJSONObject(0);
+            JSONObject jObj = jArr.getJSONObject(11);
             System.out.println(jObj);
             brand = jObj.getString("Brand");
             discount = jObj.getString("Type");
