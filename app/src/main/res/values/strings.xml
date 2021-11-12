@@ -17,6 +17,7 @@
     <string name="militaryIdCheckbox">Military</string>
     <string name="stackableCheckbox">Stackable</string>
     <string name="addInfoInput">Additional Info</string>
+    <string name="upload_text">UPLOAD</string>
 
     <string-array name="brands">
         <item>Nike</item>
