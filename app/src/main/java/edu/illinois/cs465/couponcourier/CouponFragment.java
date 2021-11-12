@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +36,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 /**
@@ -77,21 +83,6 @@ public class CouponFragment extends Fragment {
         // Required empty public constructor
     }
 
-    //    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_coupon, container, false);
-//    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +95,25 @@ public class CouponFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        String brand = "Nike";
+        String discount = "20% Off";
+        String expiration = "12/31/2021";
+        String restrictions = "blah blah blah blah blah";
+        JSONArray jArr = MainActivity.jsonArr;
+        try {
+            JSONObject jObj = jArr.getJSONObject(0);
+            System.out.println(jObj);
+            brand = jObj.getString("Brand");
+            discount = jObj.getString("Type");
+            expiration = jObj.getString("ExpDate");
+            restrictions = jObj.getJSONObject("Attributes").getString("Additional");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//        jObj.getString("Brand")
+
+
         // Inflate the layout for this fragment
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_coupon, container, false);
 
@@ -141,9 +151,9 @@ public class CouponFragment extends Fragment {
         TextView brand_text = (TextView) root.findViewById(R.id.brand_text);
         TextView discount_text = (TextView) root.findViewById(R.id.discount_text);
         TextView exp_text = (TextView) root.findViewById(R.id.exp_text);
-        brand_text.setText("Nike");
-        discount_text.setText("20% Off");
-        exp_text.setText("Exp. 12/31/2021");
+        brand_text.setText(brand);
+        discount_text.setText(discount);
+        exp_text.setText("Exp. " + expiration);
 
         instore_block.setVisibility(View.VISIBLE);
         online_block.setVisibility(View.VISIBLE);
@@ -151,7 +161,7 @@ public class CouponFragment extends Fragment {
         stackable_block.setVisibility(View.VISIBLE);
 
         TextView additional_restrictions = (TextView) root.findViewById(R.id.additional_restrictions);
-        additional_restrictions.setText("blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ");
+        additional_restrictions.setText(restrictions);
 
         return root;
     }
@@ -166,6 +176,19 @@ public class CouponFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         System.out.println("CONFIRM");
+
+                        String coupon_code = "";
+                        JSONArray jArr = MainActivity.jsonArr;
+                        try {
+                            JSONObject jObj = jArr.getJSONObject(0);
+                            coupon_code = jObj.getString("Code");
+                            System.out.println(jObj);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+
                         Button redeem_button = (Button) root.findViewById(R.id.redeem_button);
                         ImageButton screenshot_button = (ImageButton) root.findViewById(R.id.screenshot_button);
                         ImageButton copy_button = (ImageButton) root.findViewById(R.id.copy_button);
@@ -178,7 +201,7 @@ public class CouponFragment extends Fragment {
                         copy_button.setVisibility(View.VISIBLE);
                         coupon_code_title.setVisibility(View.VISIBLE);
                         coupon_code_text.setVisibility(View.VISIBLE);
-                        coupon_code_text.setText("CS465ISAWESOME");
+                        coupon_code_text.setText(coupon_code);
                         coupon_code_container.setVisibility(View.VISIBLE);
                     }
                 });
