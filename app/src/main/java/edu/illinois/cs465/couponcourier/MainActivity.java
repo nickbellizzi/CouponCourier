@@ -84,4 +84,10 @@ public class MainActivity extends AppCompatActivity {
         return jsonStr;
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Stopped", "The app stopped");
+        couponCollection.clear();
+    }
 }
