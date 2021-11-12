@@ -82,6 +82,32 @@ public class SearchFragment extends Fragment {
 
     public void populateResults() {
         try {
+            ArrayList<Coupon> coupons = MainActivity.couponCollection;
+            int len = coupons.size();
+            Log.d("populateResults", String.valueOf(len));
+            List<String> listContents = new ArrayList<String>(len);
+            for (int i = 0; i < len; ++i) {
+                Coupon coupon = coupons.get(i);
+                String brand = coupon.additionalInfo;
+                Log.d("Populating", brand);
+                listContents.add(brand);
+            }
+            Log.d("a", String.valueOf(listContents.size()));
+            ListView lv = (ListView) getView().findViewById(R.id.search_results);
+            if (lv != null) {
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listContents);
+                lv.setAdapter(adapter);
+                Log.d("Yay", "I set the adapter, fight me.");
+            } else {
+                Log.d("ONO", "We couldn't get the list view wtf");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void OLDpopulateResults() {
+        try {
             JSONArray jArr = MainActivity.jsonArr;
             int len = jArr.length();
             List<String> listContents = new ArrayList<String>(len);

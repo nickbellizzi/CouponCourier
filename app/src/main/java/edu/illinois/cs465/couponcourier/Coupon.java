@@ -23,7 +23,7 @@ public class Coupon {
 
     Coupon(JSONObject jsonCoupon) {
         try {
-            this.couponId = jsonCoupon.getInt("CouponId");
+            this.couponId = jsonCoupon.getInt("CouponID");
             this.brand = jsonCoupon.getString("Brand");
             this.product = jsonCoupon.getString("ProductName");
             this.category = getCategoryList(jsonCoupon.getJSONArray("Category"));
@@ -32,7 +32,7 @@ public class Coupon {
             this.deal = jsonCoupon.getString("Deal");
             this.expDate = jsonCoupon.getString("ExpDate");
             this.uploadDate = jsonCoupon.getString("UploadDate");
-            this.additionalInfo = jsonCoupon.getString("Additional");
+            this.additionalInfo = jsonCoupon.optString("Additional", "");
 
             JSONObject attr = jsonCoupon.getJSONObject("Attributes");
             this.attributes.put("In-Store", attr.getBoolean("In-Store"));

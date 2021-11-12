@@ -42,20 +42,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-        // Load the JSON file and fill local databases.
-        loadJSONFromAsset();
-        for (int i = 0; i < jsonArr.length(); ++i) {
-            try {
-                JSONObject jsonCoupon = jsonArr.getJSONObject(i);
-                Coupon c = new Coupon(jsonCoupon);
-                couponCollection.add(c);
-            } catch (Exception e) {
-                e.printStackTrace();
-                break;
-            }
-        }
-        Log.d("MainActivity", "Initialization success");
     }
 
     protected String loadJSONFromAsset() {
@@ -82,6 +68,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return jsonStr;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Load the JSON file and fill local databases.
+        loadJSONFromAsset();
+        for (int i = 0; i < jsonArr.length(); ++i) {
+            try {
+                JSONObject jsonCoupon = jsonArr.getJSONObject(i);
+                Coupon c = new Coupon(jsonCoupon);
+                couponCollection.add(c);
+            } catch (Exception e) {
+                e.printStackTrace();
+                break;
+            }
+        }
+        Log.d("MainActivity", "Initialization success, onResume()");
     }
 
     @Override
