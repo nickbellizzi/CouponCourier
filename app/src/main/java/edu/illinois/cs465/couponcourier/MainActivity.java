@@ -24,7 +24,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     static protected ArrayList<Coupon> couponCollection = new ArrayList<>();
     static protected JSONArray jsonArr = null;
-    static protected Map logos = new HashMap();
+    static protected Map<String, String> logos = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
