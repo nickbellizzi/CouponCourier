@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_outline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search" />
+    <item
+        android:id="@+id/navigation_coupon"
+        android:icon="@drawable/ic_baseline_fiber_new_24"
+        android:title="coupon" />
+    <item
+        android:id="@+id/navigation_upload"
+        android:icon="@drawable/ic_outline_cloud_upload_24"
+        android:title="Upload" />
+</menu>

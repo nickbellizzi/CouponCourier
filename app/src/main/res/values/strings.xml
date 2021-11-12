@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">CouponCourier</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_search_category">Search by Category</string>
+    <string name="search_hint">Type your query here.</string>
+    <string name="coupon_submission">Coupon Submission</string>
+
+    <string name="brand_dropdown">Brand</string>
+    <string name="category_dropdown">Category</string>
+    <string name="type_dropdown">Type</string>
+    <string name="code_submission">Code</string>
+    <string name="exp_date">Exp. Date</string>
+    <string name="attribute_checkbox">Attributes</string>
+    <string name="inStoreCheckbox">In-Store</string>
+    <string name="onlineCheckbox">Online</string>
+    <string name="militaryIdCheckbox">Military</string>
+    <string name="stackableCheckbox">Stackable</string>
+    <string name="addInfoInput">Additional Info</string>
+
+    <string-array name="brands">
+        <item>Nike</item>
+        <item>Adidas</item>
+        <item>H&amp;M</item>
+        <item>Patagonia</item>
+    </string-array>
+
+    <string-array name="categories">
+        <item>Clothing</item>
+        <item>Footwear</item>
+    </string-array>
+
+    <string-array name="types">
+        <item>10% off</item>
+        <item>BOGO</item>
+        <item>Free Item</item>
+    </string-array>
+</resources>

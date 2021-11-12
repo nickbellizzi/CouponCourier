@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CouponFragment"
+    >
+    <!-- TODO: Update blank fragment layout -->
+
+    <!--        <FrameLayout-->
+    <!--            android:id="@+id/text_container"-->
+    <!--            android:layout_width="203dp"-->
+    <!--            android:layout_height="155dp"-->
+    <!--            android:layout_alignParentStart="true"-->
+    <!--            android:layout_alignParentTop="true"-->
+    <!--            android:layout_marginStart="186dp"-->
+    <!--            android:layout_marginTop="58dp">-->
+
+    <LinearLayout
+        android:layout_width="355dp"
+        android:layout_height="113dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="29dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/couponLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            tools:srcCompat="@android:drawable/screen_background_dark" />
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="105dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="1dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/brand_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:inputType="none"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/discount_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:inputType="none"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="20sp"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/exp_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:inputType="none"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:typeface="normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/restriction_icons"
+        android:layout_width="355dp"
+        android:layout_height="113dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginBottom="9dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/instore_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/instore_image"
+                android:layout_width="108dp"
+                android:layout_height="133dp"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:foregroundTintMode="add"
+                android:scaleX="0.35"
+                android:scaleY="0.35"
+                android:src="@drawable/ic_baseline_storefront_24"
+                app:tint="@android:color/black" />
+
+            <TextView
+                android:id="@+id/instore_text"
+                android:layout_width="69dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="In-Store"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="16sp"
+                android:translationX="20dp"
+                android:translationY="-30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/online_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <ImageView
+                android:id="@+id/online_image"
+                android:layout_width="108dp"
+                android:layout_height="133dp"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:scaleX="0.35"
+                android:scaleY="0.35"
+                android:src="@drawable/online" />
+
+            <TextView
+                android:id="@+id/online_text"
+                android:layout_width="69dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Online"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="16sp"
+                android:translationX="20dp"
+                android:translationY="-30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/military_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+        <ImageView
+                android:id="@+id/military_image"
+                android:layout_width="108dp"
+                android:layout_height="133dp"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                app:tint="@android:color/black"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:src="@drawable/ic_baseline_military_tech_24"
+                android:translationY="10dp" />
+
+            <TextView
+                android:id="@+id/military_text"
+                android:layout_width="76dp"
+                android:layout_height="97dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Military ID Required"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="14sp"
+                android:translationX="20dp"
+                android:translationY="-10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stackable_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+        <ImageView
+                android:id="@+id/stackable_image"
+                android:layout_width="108dp"
+                android:layout_height="133dp"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:scaleX="0.35"
+                android:scaleY="0.35"
+                android:src="@drawable/stackable" />
+
+            <TextView
+                android:id="@+id/stackable_text"
+                android:layout_width="69dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Stackable"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="14sp"
+                android:translationX="15dp"
+                android:translationY="-30dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/additional_restrictions_title"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="273dp"
+        android:text="Additional Restrictions:"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/additional_restrictions"
+        android:layout_width="350dp"
+        android:layout_height="136dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="295dp"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollbars="vertical"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textIsSelectable="true"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <Button
+        android:id="@+id/redeem_button"
+        android:layout_width="355dp"
+        android:layout_height="74dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="79dp"
+        android:backgroundTint="#FF00A300"
+        android:checkable="false"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="REDEEM"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/coupon_code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="112dp"
+        android:text="Coupon Code:"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/coupon_code_text"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="78dp"
+        android:textIsSelectable="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+<!--    <ImageButton-->
+<!--        android:layout_width="36dp"-->
+<!--        android:layout_height="36dp"-->
+<!--        android:layout_marginEnd="111dp"-->
+<!--        android:layout_marginBottom="79dp"-->
+<!--        android:background="?selectableItemBackgroundBorderless"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/copy" />-->
+
+    <ImageButton
+        android:id="@+id/copy_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="71dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/copy"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/screenshot_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="70dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/screenshot"
+        android:visibility="gone" />
+
+
+</RelativeLayout>
