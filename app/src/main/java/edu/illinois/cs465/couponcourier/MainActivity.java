@@ -22,9 +22,17 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    // Global collection of Coupon objects.
     static protected ArrayList<Coupon> couponCollection = new ArrayList<>();
+
+    // JSON array for whatever reason
     static protected JSONArray jsonArr = null;
+
+    //
     static protected Map<String, String> logos = new HashMap<>();
+
+    // This object handles search parameters across fragments.
+    static protected SearchQuery currentQuery = new SearchQuery();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
