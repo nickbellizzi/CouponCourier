@@ -21,9 +21,9 @@
             >
             <Button
                 android:id="@+id/filter_button"
-                android:layout_width="72dp"
+                android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:text="wah">
+                android:text="Filter">
             </Button>
             <SearchView
                 android:layout_width="fill_parent"

@@ -82,13 +82,19 @@ public class SearchFragment extends Fragment {
 
     public void populateResults() {
         try {
-            ArrayList<Coupon> coupons = MainActivity.couponCollection;
+            //ArrayList<Coupon> coupons = MainActivity.couponCollection;
+            ArrayList<String> baqua = new ArrayList<>();
+            ArrayList<String> nike = new ArrayList<>();
+            nike.add("Nike");
+            SearchQuery sq = new SearchQuery("", nike, baqua, baqua, baqua);
+            ArrayList<Coupon> coupons = SearchQuery.search(sq);
+
             int len = coupons.size();
             Log.d("populateResults", String.valueOf(len));
             List<String> listContents = new ArrayList<String>(len);
             for (int i = 0; i < len; ++i) {
                 Coupon coupon = coupons.get(i);
-                String brand = coupon.additionalInfo;
+                String brand = coupon.brand + " " + coupon.product + " (" + String.valueOf(coupon.couponId) + ')';
                 Log.d("Populating", brand);
                 listContents.add(brand);
             }
@@ -106,7 +112,7 @@ public class SearchFragment extends Fragment {
         }
     }
 
-    public void OLDpopulateResults() {
+    public void OLD_populateResults() {
         try {
             JSONArray jArr = MainActivity.jsonArr;
             int len = jArr.length();
