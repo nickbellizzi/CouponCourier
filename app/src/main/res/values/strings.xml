@@ -6,12 +6,12 @@
     <string name="search_hint">Type your query here.</string>
     <string name="coupon_submission">Coupon Submission</string>
 
-    <string name="brand_dropdown">Brand*</string>
-    <string name="category_dropdown">Category*</string>
-    <string name="type_dropdown">Type*</string>
-    <string name="code_submission">Code*</string>
-    <string name="exp_date">Exp. Date*</string>
-    <string name="attribute_checkbox">Attributes*</string>
+    <string name="brand_dropdown">Brand<font color="#FF0000">*</font></string>
+    <string name="category_dropdown">Category<font color="#FF0000">*</font></string>
+    <string name="type_dropdown">Type<font color="#FF0000">*</font></string>
+    <string name="code_submission">Code<font color="#FF0000">*</font></string>
+    <string name="exp_date">Exp. Date<font color="#FF0000">*</font></string>
+    <string name="attribute_checkbox">Attributes<font color="#FF0000">*</font></string>
     <string name="inStoreCheckbox">In-Store</string>
     <string name="onlineCheckbox">Online</string>
     <string name="militaryIdCheckbox">Military</string>

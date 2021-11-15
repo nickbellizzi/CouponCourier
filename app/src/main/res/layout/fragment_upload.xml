@@ -52,7 +52,7 @@
                         android:layout_height="40dp"
                         android:layout_marginVertical="20dp"
                         android:layout_weight="1"
-                        android:paddingRight="30dp"
+                        android:layout_marginRight="30dp"
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
@@ -77,7 +77,7 @@
                         android:layout_height="40dp"
                         android:layout_marginVertical="20dp"
                         android:layout_weight="1"
-                        android:paddingRight="30dp"
+                        android:layout_marginRight="30dp"
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
@@ -102,7 +102,7 @@
                         android:layout_height="40dp"
                         android:layout_marginVertical="20dp"
                         android:layout_weight="1"
-                        android:paddingRight="30dp"
+                        android:layout_marginRight="30dp"
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
@@ -127,7 +127,7 @@
                         android:layout_height="40dp"
                         android:layout_marginVertical="20dp"
                         android:layout_weight="1"
-                        android:paddingRight="30dp"
+                        android:layout_marginRight="30dp"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
                 </TableRow>
@@ -155,7 +155,7 @@
                         android:cursorVisible="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:paddingRight="30dp"
+                        android:layout_marginRight="30dp"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
                 </TableRow>
@@ -195,6 +195,31 @@
                         android:textSize="15sp"
                         app:tint="@color/black"
                         android:src="@drawable/online"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/inStoreCheckbox"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="47dp"
+                        android:text="@string/inStoreCheckbox"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                    <CheckBox
+                        android:id="@+id/onlineCheckbox"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="47dp"
+                        android:text="@string/onlineCheckbox"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                </TableRow>
+                <TableRow>
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="40dp"
@@ -219,30 +244,12 @@
 
                 <TableRow>
                     <CheckBox
-                        android:id="@+id/inStoreCheckbox"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="5dp"
-                        android:layout_weight="1"
-                        android:text="@string/inStoreCheckbox"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-                    <CheckBox
-                        android:id="@+id/onlineCheckbox"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="5dp"
-                        android:layout_weight="1"
-                        android:text="@string/onlineCheckbox"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-                    <CheckBox
                         android:id="@+id/militaryIdCheckbox"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_marginVertical="5dp"
                         android:layout_weight="1"
+                        android:layout_marginLeft="47dp"
                         android:text="@string/militaryIdCheckbox"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
@@ -253,6 +260,7 @@
                         android:layout_height="40dp"
                         android:layout_marginVertical="5dp"
                         android:layout_weight="1"
+                        android:layout_marginLeft="47dp"
                         android:text="@string/stackableCheckbox"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
