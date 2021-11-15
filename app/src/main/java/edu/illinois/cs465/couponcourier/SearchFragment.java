@@ -165,6 +165,7 @@ public class SearchFragment extends Fragment {
         }
     }
 
+    // https://stackoverflow.com/questions/1109022/how-do-you-close-hide-the-android-soft-keyboard-programmatically
     public static void hideKeyboard(Fragment fragment) {
         Activity activity = fragment.getActivity();
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
