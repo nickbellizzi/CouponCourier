@@ -19,9 +19,13 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.sql.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,6 +94,42 @@ public class UploadFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
 
 
+        Set<String> categories = new HashSet<>();
+        Set<String> brands = new HashSet<>();
+        Set<String> types = new HashSet<>();
+
+
+        for(Coupon c : MainActivity.couponCollection){
+            brands.add(c.brand);
+            types.add(c.type);
+            for(String s : c.category){
+                categories.add(s);
+            }
+
+        }
+
+
+        ArrayList<String> category = new ArrayList<>();
+        category.addAll(categories);
+        category.add(0, "-");
+
+        ArrayList<String> brand = new ArrayList<>();
+        brand.addAll(brands);
+        brand.add(0, "-");
+
+
+        ArrayList<String> type = new ArrayList<>();
+        type.addAll(types);
+        type.add(0, "-");
+
+
+        String categoriesArray[] = new String[category.size()];
+        category.toArray(categoriesArray);
+        String brandsArray[] = new String[brand.size()];
+        brand.toArray(brandsArray);
+        String typesArray[] = new String[type.size()];
+        type.toArray(typesArray);
+
         uploadButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 confirmUpload(view);
@@ -116,9 +156,9 @@ public class UploadFragment extends Fragment {
             }
         });
 
-        ArrayAdapter<String> brandArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.brands));
-        ArrayAdapter<String> categoryArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.categories));
-        ArrayAdapter<String> typeArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.types));
+        ArrayAdapter<String> brandArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, brandsArray);
+        ArrayAdapter<String> categoryArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, categoriesArray);
+        ArrayAdapter<String> typeArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, typesArray);
 
         brandArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -132,7 +172,7 @@ public class UploadFragment extends Fragment {
     }
 
     private void updateText(Calendar calendar, EditText expDatePicker) {
-        String myFormat = "MMM d, yyyy";
+        String myFormat = "yyyy-MM-d"; // 2021-11-14
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         expDatePicker.setText(sdf.format(calendar.getTime()));
@@ -146,7 +186,31 @@ public class UploadFragment extends Fragment {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Button uploadButton = (Button) view.findViewById(R.id.upload_button);
+                        Spinner brandSpinner = (Spinner) view.findViewById(R.id.brandSpinner);
+                        Spinner categorySpinner = (Spinner) view.findViewById(R.id.categorySpinner);
+                        Spinner typeSpinner = (Spinner) view.findViewById(R.id.typeSpinner);
+                        EditText expDatePicker = (EditText) view.findViewById(R.id.expDatePicker);
+                        CheckBox inStoreCheckbox = (CheckBox) view.findViewById(R.id.inStoreCheckbox);
+                        CheckBox onlineCheckbox = (CheckBox) view.findViewById(R.id.onlineCheckbox);
+                        CheckBox militaryIdCheckbox = (CheckBox) view.findViewById(R.id.militaryIdCheckbox);
+                        CheckBox stackedCheckbox = (CheckBox) view.findViewById(R.id.stackedCheckbox);
+
+
+                        String selectedBrand = brandSpinner.getSelectedItem().toString();
+                        String selectedCategory = categorySpinner.getSelectedItem().toString();
+                        String selectedType = typeSpinner.getSelectedItem().toString();
+                        String selectedExpDate = expDatePicker.getText().toString().trim();
+                        Boolean selectedInStore = inStoreCheckbox.isSelected();
+                        Boolean selectedOnline = onlineCheckbox.isSelected();
+                        Boolean selectedMilitaryId = militaryIdCheckbox.isSelected();
+                        Boolean selectedStacked = stackedCheckbox.isSelected();
+
+
+
+
+
+
+
 
                     }
                 });
