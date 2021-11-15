@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/button_color"
-                    android:drawableRight="@drawable/grocery_icon"
+                    android:drawableRight="@drawable/clothes_icon_scaled"
                     android:text="Clothing"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"/>
