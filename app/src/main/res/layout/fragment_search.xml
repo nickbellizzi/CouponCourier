@@ -7,27 +7,28 @@
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
+        android:id="@+id/search_layout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
         <LinearLayout
             android:id="@+id/searchbar_layout"
-            android:paddingStart="24dp"
+            android:paddingStart="16dp"
+            android:paddingRight="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="0"
             >
-            <Button
+            <ImageButton
                 android:id="@+id/filter_button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Filter"
-                android:onClick = "filter_onClick"
+                android:layout_height="wrap_content"
+                android:src="@drawable/gucci_logo"
                 >
 
-            </Button>
+            </ImageButton>
             <SearchView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -38,16 +39,90 @@
                 >
             </SearchView>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:id="@+id/search_param_layout">
+            <TextView
+                android:paddingTop="6dp"
+                android:paddingBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search Filters"
+                android:textSize="24dp"
+                android:textAlignment="center"
+                >
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <CheckBox
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/paramcb_percent">
+                </CheckBox>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10pt"
+                    android:text="%OFF">
+                </TextView>
+
+                <CheckBox
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/paramcb_dollar">
+                </CheckBox>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10pt"
+                    android:text="$OFF">
+                </TextView>
+
+                <CheckBox
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/paramcb_bxgx">
+                </CheckBox>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10pt"
+                    android:text="BXGX">
+                </TextView>
+
+                <CheckBox
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/paramcb_freebie">
+                </CheckBox>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10pt"
+                    android:text="Freebie">
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
         <ListView
             android:id="@+id/search_results"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             >
-
         </ListView>
     </LinearLayout>
-
-
-
 </FrameLayout>

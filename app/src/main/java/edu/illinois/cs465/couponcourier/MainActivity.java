@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     // This object handles search parameters across fragments.
     static protected SearchQuery currentQuery = new SearchQuery();
+    static protected int coupon_index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,9 +119,4 @@ public class MainActivity extends AppCompatActivity {
         couponCollection.clear();
     }
 
-    // Listener for the filter button to redirect
-    public void filter_onClick(View v) {
-        NavController navController = Navigation.findNavController(v);
-        navController.navigate(R.id.action_navigation_search_to_searchQueryFragment);
-    }
 }

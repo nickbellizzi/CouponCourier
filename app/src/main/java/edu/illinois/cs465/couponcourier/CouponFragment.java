@@ -107,11 +107,8 @@ public class CouponFragment extends Fragment {
         String brand_logo_img = "@drawable/nike_logo";
         JSONArray jArr = MainActivity.jsonArr;
         try {
-            JSONObject jObj = jArr.getJSONObject(11);
-            System.out.println(jObj);
-            brand = jObj.getString("Brand");
-            discount = jObj.getString("Type");
-            expiration = jObj.getString("ExpDate");
+            JSONObject jObj = jArr.getJSONObject(MainActivity.coupon_index);
+            System.out.println(MainActivity.coupon_index);
             in_store_bool = jObj.getJSONObject("Attributes").getBoolean("In-Store");
             online_bool = jObj.getJSONObject("Attributes").getBoolean("Online");
             military_bool = jObj.getJSONObject("Attributes").getBoolean("MilitaryID");
@@ -193,9 +190,10 @@ public class CouponFragment extends Fragment {
                         String coupon_code = "";
                         JSONArray jArr = MainActivity.jsonArr;
                         try {
-                            JSONObject jObj = jArr.getJSONObject(0);
+                            JSONObject jObj = jArr.getJSONObject(MainActivity.coupon_index);
                             coupon_code = jObj.getString("Code");
                             System.out.println(jObj);
+                            jArr.remove(MainActivity.coupon_index);
 
                         } catch (Exception e) {
                             e.printStackTrace();
