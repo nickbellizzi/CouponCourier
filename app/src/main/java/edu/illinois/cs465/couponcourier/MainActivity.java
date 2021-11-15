@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     // This object handles search parameters across fragments.
     static protected SearchQuery currentQuery = new SearchQuery();
+    static protected int coupon_index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
