@@ -5,6 +5,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -44,6 +46,20 @@ public class Coupon {
             e.printStackTrace();
             Log.d("Coupon Object", "Unable to create a coupon object!");
         }
+    }
+
+    Coupon(String brand, String product, ArrayList<String> category, String type, String code, String deal, String expDate, String uploadDate, String additionalInfo, Map<String, Boolean> attributes){
+        this.couponId = 1; // can make this randomly generated if needed
+        this.brand = brand;
+        this.product = product;
+        this.category = new ArrayList<>(category);
+        this.type = type;
+        this.code = code;
+        this.deal = deal;
+        this.expDate = expDate;
+        this.uploadDate = uploadDate;
+        this.additionalInfo = additionalInfo;
+        this.attributes = new HashMap<>(attributes);
     }
 
     private static List<String> getCategoryList(JSONArray jsonCat) {
