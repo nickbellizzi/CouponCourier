@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     static protected JSONArray jsonArr = null;
 
     //
-    static protected Map<String, String> logos = new HashMap<>();
+    static protected Map<String, String> logos = new HashMap<String, String>();
 
     // This object handles search parameters across fragments.
     static protected SearchQuery currentQuery = new SearchQuery();

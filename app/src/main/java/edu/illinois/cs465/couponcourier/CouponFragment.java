@@ -118,7 +118,7 @@ public class CouponFragment extends Fragment {
             stackable_bool = jObj.getJSONObject("Attributes").getBoolean("Stackable");
             if (!jObj.getString("ExpDate").isEmpty()) expiration = jObj.getString("ExpDate");
             if (!jObj.getString("Brand").isEmpty()) brand = jObj.getString("Brand");
-            if (!jObj.getString("Type").isEmpty()) discount = jObj.getString("Type");
+            if (!jObj.getString("Deal").isEmpty()) discount = jObj.getString("Deal");
             if (!jObj.getJSONObject("Attributes").getString("Additional").isEmpty()) restrictions = jObj.getJSONObject("Attributes").getString("Additional");
         } catch (Exception e) {
             e.printStackTrace();
