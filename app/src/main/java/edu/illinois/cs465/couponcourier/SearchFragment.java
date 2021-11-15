@@ -1,16 +1,23 @@
 package edu.illinois.cs465.couponcourier;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,6 +38,9 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    // Are the search filters visible? Default is false.
+    public static boolean filtersVisible = false;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -70,9 +80,54 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View v = inflater.inflate(R.layout.fragment_search, container, false);
+        ImageButton filterButton = v.findViewById(R.id.filter_button);
+        SearchView searchBar = v.findViewById(R.id.search_bar);
+
+        filterButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                toggleFilters();
+            }
+        });
+
+        SearchView.OnQueryTextListener sbListener = new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // your text view here
+                Log.d("Searchbar TextChange", newText);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.d("Searchbar TextSubmit", query);
+                hideKeyboard(getParentFragment());
+                MainActivity.currentQuery.query = query;
+                populateResults();
+                return true;
+            }
+        };
+        searchBar.setOnQueryTextListener(sbListener);
+
+        return v;
+    }
+
+    public void toggleFilters() {
+        Log.d("Filter button", "Toggling!");
+        ListView results = getActivity().findViewById(R.id.search_results);
+        LinearLayout params = getActivity().findViewById(R.id.search_param_layout);
+
+        if (!SearchFragment.filtersVisible) {
+            results.setVisibility(View.INVISIBLE);
+            params.setVisibility(View.VISIBLE);
+            SearchFragment.filtersVisible = true;
+            return;
+        }
+        params.setVisibility(View.INVISIBLE);
+        populateResults();
+        results.setVisibility(View.VISIBLE);
+        SearchFragment.filtersVisible = false;
     }
 
     @Override
@@ -84,10 +139,7 @@ public class SearchFragment extends Fragment {
     public void populateResults() {
         try {
             //ArrayList<Coupon> coupons = MainActivity.couponCollection;
-            ArrayList<String> baqua = new ArrayList<>();
-            ArrayList<String> nike = new ArrayList<>();
-            nike.add("Nike");
-            SearchQuery sq = new SearchQuery("", nike, baqua, baqua, baqua);
+            SearchQuery sq = MainActivity.currentQuery;
             ArrayList<Coupon> coupons = SearchQuery.search(sq);
 
             int len = coupons.size();
@@ -104,7 +156,7 @@ public class SearchFragment extends Fragment {
             if (lv != null) {
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listContents);
                 lv.setAdapter(adapter);
-                Log.d("Yay", "I set the adapter, fight me.");
+                Log.d("Yay", "I set the adapter.");
             } else {
                 Log.d("ONO", "We couldn't get the list view wtf");
             }
@@ -113,28 +165,15 @@ public class SearchFragment extends Fragment {
         }
     }
 
-    public void OLD_populateResults() {
-        try {
-            JSONArray jArr = MainActivity.jsonArr;
-            int len = jArr.length();
-            List<String> listContents = new ArrayList<String>(len);
-            for (int i = 0; i < len; ++i) {
-                JSONObject jObj = jArr.getJSONObject(i);
-                String brand = jObj.getString("ProductName");
-                Log.d("Populating", brand);
-                listContents.add(brand);
-            }
-            Log.d("a", String.valueOf(listContents.size()));
-            ListView lv = (ListView) getView().findViewById(R.id.search_results);
-            if (lv != null) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listContents);
-                lv.setAdapter(adapter);
-                Log.d("Yay", "I set the adapter, fight me.");
-            } else {
-                Log.d("ONO", "We couldn't get the list view wtf");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static void hideKeyboard(Fragment fragment) {
+        Activity activity = fragment.getActivity();
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
         }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
