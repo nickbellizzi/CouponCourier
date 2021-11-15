@@ -15,7 +15,11 @@
         android:id="@+id/navigation_search"
         android:name="edu.illinois.cs465.couponcourier.SearchFragment"
         tools:layout="@layout/fragment_search"
-        />
+        >
+        <action
+            android:id="@+id/action_navigation_search_to_searchQueryFragment"
+            app:destination="@id/searchQueryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_coupon"
@@ -29,7 +33,15 @@
         android:name="edu.illinois.cs465.couponcourier.UploadFragment"
         tools:layout="@layout/fragment_upload"
         />
-
+    <fragment
+        android:id="@+id/searchQueryFragment"
+        android:name="edu.illinois.cs465.couponcourier.SearchQueryFragment"
+        android:label="fragment_query"
+        tools:layout="@layout/fragment_query" >
+        <action
+            android:id="@+id/action_searchQueryFragment_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
 
 
 </navigation>

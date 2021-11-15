@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -115,5 +116,11 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.d("Stopped", "The app stopped");
         couponCollection.clear();
+    }
+
+    // Listener for the filter button to redirect
+    public void filter_onClick(View v) {
+        NavController navController = Navigation.findNavController(v);
+        navController.navigate(R.id.action_navigation_search_to_searchQueryFragment);
     }
 }

@@ -23,7 +23,10 @@
                 android:id="@+id/filter_button"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:text="Filter">
+                android:text="Filter"
+                android:onClick = "filter_onClick"
+                >
+
             </Button>
             <SearchView
                 android:layout_width="fill_parent"
