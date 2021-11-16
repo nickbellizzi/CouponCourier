@@ -148,12 +148,12 @@ public class SearchFragment extends Fragment {
         LinearLayout params = getActivity().findViewById(R.id.search_param_layout);
         hideKeyboard(getParentFragment());
         if (!SearchFragment.filtersVisible) {
-            results.setVisibility(View.INVISIBLE);
+            results.setVisibility(View.GONE);
             params.setVisibility(View.VISIBLE);
             SearchFragment.filtersVisible = true;
             return;
         }
-        params.setVisibility(View.INVISIBLE);
+        params.setVisibility(View.GONE);
         populateResults();
         results.setVisibility(View.VISIBLE);
         SearchFragment.filtersVisible = false;

@@ -42,94 +42,96 @@
                 android:iconifiedByDefault="false"
                 android:background="@color/white"/>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/search_param_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="invisible"
-            android:id="@+id/search_param_layout">
+            android:visibility="gone">
+
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingTop="6dp"
                 android:paddingBottom="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="Search Filters"
-                android:textSize="24dp"
                 android:textAlignment="center"
-                >
-            </TextView>
+                android:textSize="24dp"></TextView>
+
             <LinearLayout
+                android:id="@+id/paramcb_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/paramcb_layout">
+                android:orientation="horizontal">
+
                 <CheckBox
+                    android:id="@+id/paramcb_percent"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:id="@+id/paramcb_percent">
-                </CheckBox>
+                    android:layout_marginEnd="8dp"></CheckBox>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10pt"
-                    android:text="%OFF">
-                </TextView>
+                    android:text="%OFF"
+                    android:textSize="10pt"></TextView>
+
                 <CheckBox
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="8dp"
+                    android:id="@+id/paramcb_dollar"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:id="@+id/paramcb_dollar">
-                </CheckBox>
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"></CheckBox>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10pt"
-                    android:text="$OFF">
-                </TextView>
+                    android:text="$OFF"
+                    android:textSize="10pt"></TextView>
+
                 <CheckBox
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="8dp"
+                    android:id="@+id/paramcb_bxgx"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:id="@+id/paramcb_bxgx">
-                </CheckBox>
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"></CheckBox>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10pt"
-                    android:text="BXGX">
-                </TextView>
+                    android:text="BXGX"
+                    android:textSize="10pt"></TextView>
+
                 <CheckBox
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="8dp"
+                    android:id="@+id/paramcb_freebie"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:id="@+id/paramcb_freebie">
-                </CheckBox>
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"></CheckBox>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10pt"
-                    android:text="Freebie">
-                </TextView>
+                    android:text="Freebie"
+                    android:textSize="10pt"></TextView>
             </LinearLayout>
+
             <Spinner
-                android:layout_marginTop="16dp"
                 android:id="@+id/paramcb_brand_spinner"
                 android:layout_width="match_parent"
-                android:backgroundTint="@color/cardview_dark_background"
-                android:layout_height="wrap_content">
-            </Spinner>
-            <Spinner
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/cardview_dark_background"></Spinner>
+
+            <Spinner
                 android:id="@+id/paramcb_category_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp">
 
             </Spinner>
         </LinearLayout>
