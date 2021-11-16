@@ -31,7 +31,7 @@ public class Coupon {
             this.category = getCategoryList(jsonCoupon.getJSONArray("Category"));
             this.type = jsonCoupon.getString("Type");
             this.code = jsonCoupon.getString("Code");
-            this.deal = jsonCoupon.getString("Deal");
+            this.deal = jsonCoupon.optString("Deal", "");
             this.expDate = jsonCoupon.getString("ExpDate");
             this.uploadDate = jsonCoupon.getString("UploadDate");
             this.additionalInfo = jsonCoupon.optString("Additional");
@@ -71,6 +71,12 @@ public class Coupon {
                 e.printStackTrace();
             }
         }
+        return output;
+    }
+
+    @Override
+    public String toString() {
+        String output = String.format(brand + " " + product);// + " -" + deal);
         return output;
     }
 }

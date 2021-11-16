@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -90,6 +91,7 @@ public class SearchFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_search, container, false);
         ImageButton filterButton = v.findViewById(R.id.filter_button);
         SearchView searchBar = v.findViewById(R.id.search_bar);
+        ListView lv = v.findViewById(R.id.search_results);
 
         filterButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -119,6 +121,16 @@ public class SearchFragment extends Fragment {
         ArrayAdapter<String> catAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, category_names);
         Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
         catSpinner.setAdapter(catAdapt);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Search Item Click", String.valueOf(position));
+                Coupon c = (Coupon) parent.getAdapter().getItem(position);
+                MainActivity.coupon_index = MainActivity.couponCollection.indexOf(c);
+                Log.d("Search Item Click", String.valueOf(MainActivity.coupon_index));
+            }
+        });
 
         return v;
     }
@@ -164,7 +176,7 @@ public class SearchFragment extends Fragment {
             Log.d("a", String.valueOf(listContents.size()));
             ListView lv = (ListView) getView().findViewById(R.id.search_results);
             if (lv != null) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listContents);
+                ArrayAdapter<Coupon> adapter = new ArrayAdapter<Coupon>(getActivity(), android.R.layout.simple_list_item_1, coupons);
                 lv.setAdapter(adapter);
                 Log.d("Yay", "I set the adapter.");
             } else {
