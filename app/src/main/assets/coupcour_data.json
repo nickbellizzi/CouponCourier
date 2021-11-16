@@ -6,7 +6,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots7856",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$20 off Purchases of $100+",
     "Code": "6675",
@@ -27,7 +27,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers6793",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Half-Off",
     "Code": "7836",
@@ -48,7 +48,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes5809",
+    "ProductName": "NMD",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "4812",
@@ -59,7 +59,7 @@
       "Online": true,
       "MilitaryID": false,
       "Stackable": false,
-      "Additional": "Must buy a full-priced item to get an item of equal or lesser value for free.\nValid only on full-price items.\nProduct exclusions apply. Exclusions include products from the Yeezy brand.\nOffer cannot be used with other coupons or promotions."
+      "Additional": "Only valid on footwear part of the NMD family.\nMust buy a full-priced item to get an item of equal or lesser value for free.\nValid only on full-price items.\nProduct exclusions apply. Exclusions include products from the Yeezy brand.\nOffer cannot be used with other coupons or promotions."
     }
   },
   {
@@ -69,7 +69,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots2785",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get Two Free",
     "Code": "796",
@@ -90,7 +90,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals5430",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "$15 off Purchase of $50+",
     "Code": "10496",
@@ -111,7 +111,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots6883",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Socks With $50+ Purchase",
     "Code": "5513",
@@ -132,7 +132,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes803",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Jibbit With Purchase of Crocs",
     "Code": "918",
@@ -153,7 +153,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers1200",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "25% Off With Purchase of $100+",
     "Code": "3128",
@@ -174,7 +174,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers448",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get Three Free",
     "Code": "8092",
@@ -195,7 +195,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes9742",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$2 Off With Purchase of $5+",
     "Code": "10149",
@@ -216,7 +216,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes6295",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "4548",
@@ -237,7 +237,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals8554",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Half Off",
     "Code": "6859",
@@ -258,7 +258,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals2276",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "9192",
@@ -279,7 +279,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals7623",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$15 Off With Purchase of $50+",
     "Code": "8813",
@@ -300,7 +300,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots9722",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "6467",
@@ -321,7 +321,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots6458",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$5 Off",
     "Code": "9625",
@@ -342,7 +342,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers7754",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "3493",
@@ -363,7 +363,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers5539",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "9077",
@@ -384,7 +384,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes1441",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Half Off",
     "Code": "5002",
@@ -405,7 +405,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers4528",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "25% Off With Purchase of $20+",
     "Code": "2380",
@@ -426,7 +426,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers3366",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Cleaning Solution with $100+ Purchase",
     "Code": "8146",
@@ -447,7 +447,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots5380",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Cleaning Solution with $100+ Purchase",
     "Code": "10657",
@@ -468,7 +468,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals5836",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "5346",
@@ -489,7 +489,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals3016",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "8745",
@@ -510,7 +510,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots1105",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get Two Free",
     "Code": "4149",
@@ -531,7 +531,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots6676",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$10 Off With Purchase of $100+",
     "Code": "9677",
@@ -552,7 +552,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers688",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get Three Free",
     "Code": "9841",
@@ -573,7 +573,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots1645",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Half Off",
     "Code": "10568",
@@ -594,7 +594,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes7902",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Cleaning Solution with $100+ Purchase",
     "Code": "2897",
@@ -615,7 +615,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals3577",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "40% Off With Purchase of $200+",
     "Code": "8636",
@@ -636,7 +636,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers6664",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "25% Off With Purchase of $100+",
     "Code": "8162",
@@ -657,7 +657,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots4137",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Jibbet With Purchase of Crocs",
     "Code": "9209",
@@ -678,7 +678,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots8426",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$50 Off With Purchase of $200+",
     "Code": "10189",
@@ -699,7 +699,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes2448",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "5313",
@@ -720,7 +720,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes8576",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "4148",
@@ -741,7 +741,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers3408",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Half Off",
     "Code": "876",
@@ -762,7 +762,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots9184",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$10 Off With Purchase of $100+",
     "Code": "10950",
@@ -783,7 +783,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers9542",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "25% Off With Purchase of $20+",
     "Code": "9950",
@@ -804,7 +804,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers1692",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "6666",
@@ -825,7 +825,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes6672",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$20 Off With Purchase of $50+",
     "Code": "9602",
@@ -846,7 +846,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers3927",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Socks with $50+ Purchase",
     "Code": "5267",
@@ -867,7 +867,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers3880",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "8455",
@@ -888,7 +888,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers7846",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get Two Free",
     "Code": "2504",
@@ -909,7 +909,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers151",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "1669",
@@ -930,7 +930,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals9177",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "20% Off",
     "Code": "995",
@@ -951,7 +951,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals1175",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "8161",
@@ -972,7 +972,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers8244",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$15 Off With Purchase of $50+",
     "Code": "9595",
@@ -993,7 +993,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes171",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Socks with $50+ Purchase",
     "Code": "6144",
@@ -1014,7 +1014,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals3186",
+    "ProductName": "",
     "Type": "BXGX",
     "Deal": "Buy One Get One Free",
     "Code": "6311",
@@ -1035,7 +1035,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Boots4936",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "50% Off",
     "Code": "77",
@@ -1056,7 +1056,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Shoes3875",
+    "ProductName": "",
     "Type": "Freebie",
     "Deal": "Free Cleaning Solution with $100+ Purchase",
     "Code": "10640",
@@ -1077,7 +1077,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers9369",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$10 Off With Purchase of $100+",
     "Code": "6633",
@@ -1098,7 +1098,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sneakers2555",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "40% Off With Purchase of $200+",
     "Code": "6857",
@@ -1119,7 +1119,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Slippers1789",
+    "ProductName": "",
     "Type": "%off",
     "Deal": "50% Off",
     "Code": "6464",
@@ -1140,7 +1140,7 @@
       "Clothing",
       "Footwear"
     ],
-    "ProductName": "Sandals3283",
+    "ProductName": "",
     "Type": "$off",
     "Deal": "$5 Off",
     "Code": "122",

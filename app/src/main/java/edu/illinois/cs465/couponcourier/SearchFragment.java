@@ -176,7 +176,10 @@ public class SearchFragment extends Fragment {
             List<String> listContents = new ArrayList<String>(len);
             for (int i = 0; i < len; ++i) {
                 Coupon coupon = coupons.get(i);
-                String brand = coupon.brand + " " + coupon.product + " (" + String.valueOf(coupon.couponId) + ')';
+                String product = "";
+                if (!coupon.product.isEmpty()) product = " (" + String.valueOf(coupon.product) + ')';
+                String brand = coupon.brand + ": " + coupon.deal + product;
+//                String brand = coupon.brand + " " + coupon.product + " (" + String.valueOf(coupon.couponId) + ')';
                 Log.d("Populating", brand);
                 listContents.add(brand);
             }
