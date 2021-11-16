@@ -13,4 +13,5 @@
     <color name="text_instructions_color">#000000</color>
     <color name="home_buttons_color">#A7CDC9</color>
     <color name="button_text_color">#000000</color>
+    <color name="upload_button_color">#FF00A300</color>
 </resources>

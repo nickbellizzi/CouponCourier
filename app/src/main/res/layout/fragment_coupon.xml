@@ -78,20 +78,21 @@
 
     <LinearLayout
         android:id="@+id/restriction_icons"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/coupon_info_block"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:gravity="center_horizontal"
+        android:gravity="center_horizontal|top"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/instore_block"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="top"
             android:layout_weight="1"
             android:orientation="vertical"
             android:visibility="gone">
@@ -104,6 +105,8 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_weight="1"
                 android:foregroundTintMode="add"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
                 android:scaleX="2.5"
                 android:scaleY="2.5"
                 android:src="@drawable/ic_baseline_storefront_24"
@@ -115,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:gravity="center_horizontal"
+                android:paddingTop="5dp"
                 android:text="In-Store"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -125,41 +129,48 @@
             android:id="@+id/online_block"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="top"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
 
             <ImageView
                 android:id="@+id/online_image"
 
                 android:layout_width="wrap_content"
-                android:layout_height="102dp"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_weight="1"
+                android:foregroundTintMode="add"
+                android:paddingBottom="5dp"
                 android:scaleX="0.5"
                 android:scaleY="0.5"
-                android:src="@drawable/online" />
+                android:src="@drawable/online"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/online_text"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
+                android:paddingTop="5dp"
                 android:text="Online"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/military_block"
             android:layout_width="match_parent"
+            android:layout_gravity="top"
             android:layout_height="match_parent"
-            android:layout_marginBottom="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:visibility="gone">
@@ -172,6 +183,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_weight="1"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
                 android:scaleX="2.5"
                 android:scaleY="2.5"
                 android:src="@drawable/ic_baseline_military_tech_24"
@@ -183,8 +196,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/military_image"
                 android:layout_gravity="bottom|center_horizontal"
-                android:paddingTop="10dp"
-                android:text="Military ID Required"
+                android:paddingTop="5dp"
+                android:text="Military ID"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="14sp" />
@@ -194,6 +207,7 @@
             android:id="@+id/stackable_block"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="top"
             android:layout_weight="1"
             android:orientation="vertical"
             android:visibility="gone">
@@ -208,6 +222,7 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_weight="1"
                 android:foregroundTintMode="add"
+                android:paddingBottom="5dp"
                 android:scaleX="0.5"
                 android:scaleY="0.5"
                 android:src="@drawable/stackable" />

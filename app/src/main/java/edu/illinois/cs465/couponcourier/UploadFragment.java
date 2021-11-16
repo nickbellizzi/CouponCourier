@@ -277,7 +277,13 @@ public class UploadFragment extends Fragment {
                         Coupon newCoupon = new Coupon(selectedBrand, "", new ArrayList<String>(Arrays.asList(selectedCategory)), selectedType,
                                                         selectedCode, "", selectedExpDate, dtf.format(uploadDate), selectedAdditionalInformation, attrs);
 
-                        MainActivity.couponCollection.add(newCoupon);
+
+                        try{
+                            MainActivity.couponCollection.add(newCoupon);
+                        }catch(Exception e){
+                            Toast.makeText(getContext(), "Failed to upload coupon!", Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
                         Toast.makeText(getContext(), "Successfully uploaded coupon!", Toast.LENGTH_LONG).show();
 
