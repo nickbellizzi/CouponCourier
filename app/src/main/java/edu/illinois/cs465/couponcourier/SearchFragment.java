@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,6 +27,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -41,6 +44,9 @@ public class SearchFragment extends Fragment {
 
     // Are the search filters visible? Default is false.
     public static boolean filtersVisible = false;
+
+    // Array of different category types
+    ArrayList<String> category_names = new ArrayList<String> (Arrays.asList("All", "Clothing", "Electronics", "Shoes", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -110,6 +116,10 @@ public class SearchFragment extends Fragment {
         };
         searchBar.setOnQueryTextListener(sbListener);
 
+        ArrayAdapter<String> catAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, category_names);
+        Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
+        catSpinner.setAdapter(catAdapt);
+
         return v;
     }
 
@@ -117,7 +127,7 @@ public class SearchFragment extends Fragment {
         Log.d("Filter button", "Toggling!");
         ListView results = getActivity().findViewById(R.id.search_results);
         LinearLayout params = getActivity().findViewById(R.id.search_param_layout);
-
+        hideKeyboard(getParentFragment());
         if (!SearchFragment.filtersVisible) {
             results.setVisibility(View.INVISIBLE);
             params.setVisibility(View.VISIBLE);
