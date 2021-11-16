@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        SearchView searchView = view.findViewById(R.id.search_bar);
+        SearchView searchView = view.findViewById(R.id.search_bar_home);
         searchView.setQueryHint("search by brand, category, coupon type, etc.");
         // Makes entire bar clickable
         searchView.setIconified(false);

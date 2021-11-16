@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
     tools:context=".SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:id="@+id/search_layout"
         android:layout_width="fill_parent"
@@ -16,6 +17,7 @@
             android:id="@+id/searchbar_layout"
             android:paddingStart="16dp"
             android:paddingRight="8dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -23,21 +25,22 @@
             >
             <ImageButton
                 android:id="@+id/filter_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/gucci_logo"
-                >
-
-            </ImageButton>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                app:tint="@color/forest_green_light"
+                android:src="@drawable/filter_icon"/>
             <SearchView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_bar"
                 android:queryHint="@string/search_hint"
                 android:iconifiedByDefault="false"
-                android:background="@color/white"
-                >
-            </SearchView>
+                android:background="@color/white"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                >
+                android:id="@+id/paramcb_layout">
                 <CheckBox
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="8dp"
@@ -73,7 +76,6 @@
                     android:textSize="10pt"
                     android:text="%OFF">
                 </TextView>
-
                 <CheckBox
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="8dp"
@@ -87,7 +89,6 @@
                     android:textSize="10pt"
                     android:text="$OFF">
                 </TextView>
-
                 <CheckBox
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="8dp"
@@ -101,7 +102,6 @@
                     android:textSize="10pt"
                     android:text="BXGX">
                 </TextView>
-
                 <CheckBox
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="8dp"
@@ -116,6 +116,22 @@
                     android:text="Freebie">
                 </TextView>
             </LinearLayout>
+            <Spinner
+                android:layout_marginTop="16dp"
+                android:id="@+id/paramcb_brand_spinner"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/cardview_dark_background"
+                android:layout_height="wrap_content">
+            </Spinner>
+            <Spinner
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:id="@+id/paramcb_category_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
         </LinearLayout>
         <ListView
             android:id="@+id/search_results"
