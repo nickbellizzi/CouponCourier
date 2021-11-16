@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -129,8 +131,13 @@ public class SearchFragment extends Fragment {
                 Coupon c = (Coupon) parent.getAdapter().getItem(position);
                 MainActivity.coupon_index = MainActivity.couponCollection.indexOf(c);
                 Log.d("Search Item Click", String.valueOf(MainActivity.coupon_index));
+
+                NavController nc = Navigation.findNavController(v);
+                nc.navigate(R.id.action_navigation_search_to_navigation_coupon);
             }
         });
+
+
 
         return v;
     }
