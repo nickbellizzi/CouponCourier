@@ -41,6 +41,8 @@ import java.util.Set;
  * Use the {@link UploadFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+// TODO: ADD CUSTOM SPINNER for multiple selections
+// TODO: ADD MISSING COUPON FIELDS
 public class UploadFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -95,10 +97,6 @@ public class UploadFragment extends Fragment {
         Spinner typeSpinner = (Spinner) view.findViewById(R.id.typeSpinner);
         EditText expDatePicker = (EditText) view.findViewById(R.id.expDatePicker);
         Button uploadButton = (Button) view.findViewById(R.id.upload_button);
-        CheckBox inStoreCheckbox = (CheckBox) view.findViewById(R.id.inStoreCheckbox);
-        CheckBox onlineCheckbox = (CheckBox) view.findViewById(R.id.onlineCheckbox);
-        CheckBox militaryIdCheckbox = (CheckBox) view.findViewById(R.id.militaryIdCheckbox);
-        CheckBox stackedCheckbox = (CheckBox) view.findViewById(R.id.stackedCheckbox);
 
         Calendar calendar = Calendar.getInstance();
 
@@ -213,6 +211,8 @@ public class UploadFragment extends Fragment {
                         CheckBox militaryIdCheckbox = (CheckBox) view.findViewById(R.id.militaryIdCheckbox);
                         CheckBox stackedCheckbox = (CheckBox) view.findViewById(R.id.stackedCheckbox);
                         EditText additionalInfoPicker = (EditText) view.findViewById(R.id.addInfoInput);
+                        EditText productPicker = (EditText) view.findViewById(R.id.productInput);
+                        EditText dealPicker = (EditText) view.findViewById(R.id.dealInput);
 
 
                         String selectedBrand = brandSpinner.getSelectedItem().toString();
@@ -225,7 +225,8 @@ public class UploadFragment extends Fragment {
                         Boolean selectedMilitaryId = militaryIdCheckbox.isChecked();
                         Boolean selectedStacked = stackedCheckbox.isChecked();
                         String selectedAdditionalInformation = additionalInfoPicker.getText().toString().trim();
-
+                        String selectedProduct = productPicker.getText().toString().trim();
+                        String selectedDeal = dealPicker.getText().toString().trim();
 
                         if(selectedBrand.equalsIgnoreCase("-")){
                             Toast.makeText(getContext(), "Please select a brand!", Toast.LENGTH_SHORT).show();
@@ -241,6 +242,12 @@ public class UploadFragment extends Fragment {
 
                         if(selectedType.equalsIgnoreCase("-")){
                             Toast.makeText(getContext(), "Please select a type!", Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                            return;
+                        }
+
+                        if(selectedDeal.isEmpty()){
+                            Toast.makeText(getContext(), "Please enter a valid deal!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
@@ -274,8 +281,8 @@ public class UploadFragment extends Fragment {
                         attrs.put("Stackable", selectedStacked);
 
 
-                        Coupon newCoupon = new Coupon(selectedBrand, "", new ArrayList<String>(Arrays.asList(selectedCategory)), selectedType,
-                                                        selectedCode, "", selectedExpDate, dtf.format(uploadDate), selectedAdditionalInformation, attrs);
+                        Coupon newCoupon = new Coupon(selectedBrand, selectedProduct, new ArrayList<String>(Arrays.asList(selectedCategory)), selectedType,
+                                                        selectedCode, selectedDeal, selectedExpDate, dtf.format(uploadDate), selectedAdditionalInformation, attrs);
 
 
                         try{
@@ -297,6 +304,8 @@ public class UploadFragment extends Fragment {
                         militaryIdCheckbox.setChecked(false);
                         stackedCheckbox.setChecked(false);
                         additionalInfoPicker.setText("");
+                        dealPicker.setText("");
+                        productPicker.setText("");
                     }
                 });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

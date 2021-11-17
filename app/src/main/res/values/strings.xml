@@ -9,6 +9,7 @@
     <string name="brand_dropdown">Brand<font color="#FF0000">*</font></string>
     <string name="category_dropdown">Category<font color="#FF0000">*</font></string>
     <string name="type_dropdown">Type<font color="#FF0000">*</font></string>
+    <string name="type_deal">Deal<font color="#FF0000">*</font></string>
     <string name="code_submission">Code<font color="#FF0000">*</font></string>
     <string name="exp_date">Exp. Date<font color="#FF0000">*</font></string>
     <string name="attribute_checkbox">Attributes<font color="#FF0000">*</font></string>
@@ -16,6 +17,7 @@
     <string name="onlineCheckbox">Online</string>
     <string name="militaryIdCheckbox">Military</string>
     <string name="stackableCheckbox">Stackable</string>
+    <string name="productInput">Product</string>
     <string name="addInfoInput">Additional Info</string>
     <string name="upload_text">UPLOAD</string>
 
