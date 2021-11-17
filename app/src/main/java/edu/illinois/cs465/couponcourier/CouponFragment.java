@@ -107,16 +107,16 @@ public class CouponFragment extends Fragment {
         String brand_logo_img = "@drawable/nike_logo";
         JSONArray jArr = MainActivity.jsonArr;
         try {
-            JSONObject jObj = jArr.getJSONObject(MainActivity.coupon_index);
+            Coupon coupon = MainActivity.couponCollection.get(MainActivity.coupon_index);
             System.out.println(MainActivity.coupon_index);
-            in_store_bool = jObj.getJSONObject("Attributes").getBoolean("In-Store");
-            online_bool = jObj.getJSONObject("Attributes").getBoolean("Online");
-            military_bool = jObj.getJSONObject("Attributes").getBoolean("MilitaryID");
-            stackable_bool = jObj.getJSONObject("Attributes").getBoolean("Stackable");
-            if (!jObj.getString("ExpDate").isEmpty()) expiration = jObj.getString("ExpDate");
-            if (!jObj.getString("Brand").isEmpty()) brand = jObj.getString("Brand");
-            if (!jObj.getString("Deal").isEmpty()) discount = jObj.getString("Deal");
-            if (!jObj.getJSONObject("Attributes").getString("Additional").isEmpty()) restrictions = jObj.getJSONObject("Attributes").getString("Additional");
+            in_store_bool = coupon.attributes.get("In-Store");
+            online_bool = coupon.attributes.get("Online");
+            military_bool = coupon.attributes.get("MilitaryID");
+            stackable_bool = coupon.attributes.get("Stackable");
+            if (!coupon.expDate.isEmpty()) expiration = coupon.expDate;
+            if (!coupon.brand.isEmpty()) brand = coupon.brand;
+            if (!coupon.deal.isEmpty()) discount = coupon.deal;
+            restrictions = coupon.additionalInfo;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -190,11 +190,10 @@ public class CouponFragment extends Fragment {
                         String coupon_code = "";
                         JSONArray jArr = MainActivity.jsonArr;
                         try {
-                            JSONObject jObj = jArr.getJSONObject(MainActivity.coupon_index);
-                            coupon_code = jObj.getString("Code");
-                            System.out.println(jObj);
-                            jArr.remove(MainActivity.coupon_index);
-
+                            Coupon c = MainActivity.couponCollection.get(MainActivity.coupon_index);
+                            coupon_code = c.code;
+                            System.out.println(c);
+                            MainActivity.couponCollection.remove(MainActivity.coupon_index);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
