@@ -136,9 +136,6 @@ public class SearchFragment extends Fragment {
                 nc.navigate(R.id.action_navigation_search_to_navigation_coupon);
             }
         });
-
-
-
         return v;
     }
 
@@ -170,6 +167,8 @@ public class SearchFragment extends Fragment {
             //ArrayList<Coupon> coupons = MainActivity.couponCollection;
             SearchQuery sq = MainActivity.currentQuery;
             ArrayList<Coupon> coupons = SearchQuery.search(sq);
+            SearchView sv = getView().findViewById(R.id.search_bar);
+            sv.setQuery(sq.query, false);
 
             int len = coupons.size();
             Log.d("populateResults", String.valueOf(len));

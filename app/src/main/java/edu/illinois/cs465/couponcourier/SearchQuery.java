@@ -2,6 +2,7 @@ package edu.illinois.cs465.couponcourier;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
+import java.util.Locale;
 
 public class SearchQuery {
     public String query = "";
@@ -38,12 +39,14 @@ public class SearchQuery {
         ArrayList<Coupon> coupons = MainActivity.couponCollection;
         ArrayList<Coupon> results = new ArrayList<>();
 
+        String query = sq.query.toLowerCase().trim();
+
         for (int i = 0; i < coupons.size(); ++i) {
             Coupon c = coupons.get(i);
 
             // Check product name if not empty
             if (!sq.query.isEmpty()) {
-                if (!c.product.contains(sq.query)) {
+                if (!c.product.contains(sq.query) && !c.brand.toLowerCase().contains(query)) {
                     continue;
                 }
             }

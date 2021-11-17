@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 
 /**
@@ -69,6 +72,38 @@ public class HomeFragment extends Fragment {
         // Makes entire bar clickable
         searchView.setIconified(false);
         searchView.clearFocus();
+
+        // Initialize listeners
+        setupListeners(view);
         return view;
+    }
+
+    SearchView.OnQueryTextListener sbListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            return true;
+        }
+
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            View v = getView();
+            Log.d("Searchbar TextSubmit", query);
+            SearchFragment.hideKeyboard(getParentFragment());
+            MainActivity.currentQuery = new SearchQuery(query);
+            NavController nc = Navigation.findNavController(v);
+            nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            Log.d("home_search bar",query);
+            return true;
+        }
+    };
+
+
+    private void setupListeners(View v) {
+        Log.d("setup", "yay");
+
+        SearchView sv = v.findViewById(R.id.search_bar_home);
+        sv.setOnQueryTextListener(sbListener);
+        return;
+
     }
 }
