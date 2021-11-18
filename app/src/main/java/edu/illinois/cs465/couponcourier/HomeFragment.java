@@ -8,7 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
@@ -67,11 +70,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        SearchView searchView = view.findViewById(R.id.search_bar_home);
-        searchView.setQueryHint("search by brand, category, coupon type, etc.");
-        // Makes entire bar clickable
-        searchView.setIconified(false);
-        searchView.clearFocus();
 
         // Initialize listeners
         setupListeners(view);
@@ -103,7 +101,123 @@ public class HomeFragment extends Fragment {
 
         SearchView sv = v.findViewById(R.id.search_bar_home);
         sv.setOnQueryTextListener(sbListener);
-        return;
 
+        Button all_button = v.findViewById(R.id.all_button);
+        all_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.currentQuery = new SearchQuery();
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button clothing_button = v.findViewById(R.id.clothing_button);
+        clothing_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("clothing");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button electronics_button = v.findViewById(R.id.electronics_button);
+        electronics_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("electronics");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button shoes_button = v.findViewById(R.id.shoes_button);
+        shoes_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("footwear");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button groceries_button = v.findViewById(R.id.groceries_button);
+        groceries_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("groceries");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button food_button = v.findViewById(R.id.food_button);
+        food_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("food");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button personalcare_button = v.findViewById(R.id.personalcare_button);
+        personalcare_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("personal_care");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button toys_button = v.findViewById(R.id.toys_button);
+        toys_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("toys");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button homekitchen_button = v.findViewById(R.id.homekitchen_button);
+        homekitchen_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("home_kitchen");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
+
+        Button travel_button = v.findViewById(R.id.travel_button);
+        travel_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchQuery sq = new SearchQuery();
+                sq.categories.add("travel");
+                MainActivity.currentQuery = sq;
+                NavController nc = Navigation.findNavController(view);
+                nc.navigate(R.id.action_navigation_home_to_navigation_search);
+            }
+        });
     }
 }

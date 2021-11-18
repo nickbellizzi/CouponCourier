@@ -33,7 +33,8 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 app:tint="@color/forest_green_light"
-                android:src="@drawable/filter_icon"/>
+                android:src="@drawable/filter_icon"
+                android:contentDescription="@string/filter_description" />
             <SearchView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -55,9 +56,9 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="6dp"
                 android:paddingBottom="8dp"
-                android:text="Search Filters"
+                android:text="@string/search_filters"
                 android:textAlignment="center"
-                android:textSize="24dp"></TextView>
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:id="@+id/paramcb_layout"
@@ -70,52 +71,52 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginEnd="8dp"></CheckBox>
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="%OFF"
-                    android:textSize="10pt"></TextView>
+                    android:text="@string/off_relative"
+                    android:textSize="10pt" />
 
                 <CheckBox
                     android:id="@+id/paramcb_dollar"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginEnd="8dp"></CheckBox>
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$OFF"
-                    android:textSize="10pt"></TextView>
+                    android:text="@string/off_absolute"
+                    android:textSize="10pt" />
 
                 <CheckBox
                     android:id="@+id/paramcb_bxgx"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginEnd="8dp"></CheckBox>
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BXGX"
-                    android:textSize="10pt"></TextView>
+                    android:text="@string/bxgx"
+                    android:textSize="10pt" />
 
                 <CheckBox
                     android:id="@+id/paramcb_freebie"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginEnd="8dp"></CheckBox>
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Freebie"
-                    android:textSize="10pt"></TextView>
+                    android:text="@string/freebie"
+                    android:textSize="10pt" />
             </LinearLayout>
 
             <Spinner
@@ -123,7 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/cardview_dark_background"></Spinner>
+                android:backgroundTint="@color/cardview_dark_background" />
 
             <Spinner
                 android:id="@+id/paramcb_category_spinner"

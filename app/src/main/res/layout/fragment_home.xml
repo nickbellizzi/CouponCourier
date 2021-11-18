@@ -16,9 +16,9 @@
             android:id="@+id/search_bar_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:queryBackground="@drawable/bg_white_rounded"
-            app:submitBackground="@drawable/bg_white_rounded"
-            android:background="@drawable/bg_white_rounded"/>
+            app:queryHint="@string/search_hint"
+            app:iconifiedByDefault="false"
+            android:background="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,121 +35,132 @@
             android:layout_weight="1">
             <TableRow>
                 <Button
+                    android:id="@+id/all_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/coupon_icon_scaled"
-                    android:text="All"
+                    android:text="@string/all"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"
                     android:layout_marginRight="6dp"/>
 
                 <Button
+                    android:id="@+id/clothing_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/clothes_icon_scaled"
-                    android:text="Clothing"
+                    android:text="@string/clothing"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"/>
             </TableRow>
             <TableRow>
                 <Button
+                    android:id="@+id/electronics_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/electronics_icon_scaled"
-                    android:text="Electronics"
+                    android:text="@string/electronics"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"
-                    android:layout_marginRight="6dp"/>
+                    android:layout_marginRight="6dp"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
+                    android:id="@+id/shoes_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/shoes_icon_scaled"
-                    android:text="Shoes"
+                    android:text="@string/shoes"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"/>
             </TableRow>
             <TableRow>
                 <Button
+                    android:id="@+id/groceries_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/grocery_icon"
-                    android:text="Groceries"
+                    android:text="@string/groceries"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"
                     android:layout_marginRight="6dp"/>
 
                 <Button
+                    android:id="@+id/food_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/food_icon_scaled"
-                    android:text="Food"
+                    android:text="@string/food"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"/>
             </TableRow>
             <TableRow>
                 <Button
+                    android:id="@+id/personalcare_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/makeup_icon_scaled"
-                    android:text="Personal Care"
+                    android:text="@string/personal_care"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"
                     android:layout_marginRight="6dp"/>
 
                 <Button
+                    android:id="@+id/toys_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/toys_icon_scaled"
-                    android:text="Toys"
+                    android:text="@string/toys"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"/>
             </TableRow>
             <TableRow>
                 <Button
+                    android:id="@+id/homekitchen_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/kitchen_icon_scaled"
-                    android:text="Home &amp; Kitchen"
+                    android:text="@string/home_amp_kitchen"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"
                     android:layout_marginRight="6dp"/>
 
                 <Button
+                    android:id="@+id/travel_button"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:backgroundTint="@color/home_buttons_color"
                     android:drawableRight="@drawable/travel_icon_scaled"
-                    android:text="Travel"
+                    android:text="@string/travel"
                     android:textAllCaps="false"
                     android:textColor="@color/button_text_color"/>
             </TableRow>

@@ -1,8 +1,8 @@
 package edu.illinois.cs465.couponcourier;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
-import java.util.Locale;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SearchQuery {
     public String query = "";
@@ -60,11 +60,22 @@ public class SearchQuery {
 
             // Check categories if not empty
             if (!sq.categories.isEmpty()) {
-                ListIterator<String> itr = sq.categories.listIterator();
-                while (itr.hasNext()) {
-                    if (!c.category.contains(itr.next())) {
-                        continue;
-                    }
+                Set<String> searchCategories = new HashSet<>();
+                for (String category : sq.categories) {
+                    String toLowerCase = category.toLowerCase();
+                    searchCategories.add(toLowerCase);
+                }
+
+                Set<String> couponCategories = new HashSet<>();
+                for (String s : c.category) {
+                    String toLowerCase = s.toLowerCase();
+                    couponCategories.add(toLowerCase);
+                }
+
+                couponCategories.retainAll(searchCategories);
+
+                if (couponCategories.size() == 0) {
+                    continue;
                 }
             }
 

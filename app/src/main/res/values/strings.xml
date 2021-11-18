@@ -2,7 +2,7 @@
     <string name="app_name">CouponCourier</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home_search_category">Search by Category</string>
+    <string name="home_search_category">Popular Categories</string>
     <string name="search_hint">Type your query here.</string>
     <string name="coupon_submission">Coupon Submission</string>
 
@@ -20,6 +20,22 @@
     <string name="productInput">Product</string>
     <string name="addInfoInput">Additional Info</string>
     <string name="upload_text">UPLOAD</string>
+    <string name="travel">Travel</string>
+    <string name="home_amp_kitchen"><![CDATA[Home & Kitchen]]></string>
+    <string name="toys">Toys</string>
+    <string name="personal_care">Personal Care</string>
+    <string name="food">Food</string>
+    <string name="groceries">Groceries</string>
+    <string name="shoes">Shoes</string>
+    <string name="electronics">Electronics</string>
+    <string name="clothing">Clothing</string>
+    <string name="all">All</string>
+    <string name="filter_description">filter deals</string>
+    <string name="search_filters">Search Filters</string>
+    <string name="bxgx">BXGX</string>
+    <string name="off_absolute">$OFF</string>
+    <string name="freebie">Freebie</string>
+    <string name="off_relative">%OFF</string>
 
     <string-array name="brands">
         <item>Nike</item>
