@@ -188,10 +188,6 @@ public class UploadFragment extends Fragment {
         expDatePicker.setText(sdf.format(calendar.getTime()));
     }
 
-    private boolean checkRequiredField(){
-        return true;
-    }
-
     public void confirmUpload(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
