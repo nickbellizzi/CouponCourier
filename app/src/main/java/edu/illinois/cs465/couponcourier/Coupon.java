@@ -12,16 +12,16 @@ import org.json.JSONObject;
 
 public class Coupon {
     public int couponId = 0;
-    public String brand;
-    public String product;
+    public String brand = "";
+    public String product = "";
     public List<String> category = new ArrayList<>();
-    public String type;
-    public String deal;
-    public String code;
-    public String expDate;
-    public String uploadDate;
+    public String type = "";
+    public String deal = "";
+    public String code = "";
+    public String expDate = "";
+    public String uploadDate = "";
     public HashMap<String, Boolean> attributes = new HashMap<>();
-    public String additionalInfo;
+    public String additionalInfo = "";
 
     Coupon(JSONObject jsonCoupon) {
         try {
@@ -47,6 +47,8 @@ public class Coupon {
             Log.d("Coupon Object", "Unable to create a coupon object!");
         }
     }
+
+    Coupon() {}
 
     Coupon(String brand, String product, ArrayList<String> category, String type, String code, String deal, String expDate, String uploadDate, String additionalInfo, Map<String, Boolean> attributes){
         this.couponId = 1; // can make this randomly generated if needed
