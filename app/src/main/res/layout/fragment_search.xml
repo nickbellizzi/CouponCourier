@@ -40,8 +40,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/search_bar"
                 android:queryHint="@string/search_hint"
-                android:iconifiedByDefault="false"
-                android:background="@color/white"/>
+                android:iconifiedByDefault="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -58,7 +57,7 @@
                 android:paddingBottom="8dp"
                 android:text="@string/search_filters"
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="36dp" />
 
             <LinearLayout
                 android:id="@+id/paramcb_layout"
@@ -123,18 +122,20 @@
                 android:id="@+id/paramcb_brand_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/cardview_dark_background" />
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="32dp"/>
 
             <Spinner
                 android:id="@+id/paramcb_category_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="32dp"/>
 
-            </Spinner>
         </LinearLayout>
         <ListView
             android:id="@+id/search_results"

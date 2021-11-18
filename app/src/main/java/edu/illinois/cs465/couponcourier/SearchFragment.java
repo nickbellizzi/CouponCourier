@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -16,19 +15,14 @@ import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,51 +85,7 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_search, container, false);
-        ImageButton filterButton = v.findViewById(R.id.filter_button);
-        SearchView searchBar = v.findViewById(R.id.search_bar);
-        ListView lv = v.findViewById(R.id.search_results);
-
-        filterButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                toggleFilters();
-            }
-        });
-
-        SearchView.OnQueryTextListener sbListener = new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // your text view here
-                Log.d("Searchbar TextChange", newText);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Log.d("Searchbar TextSubmit", query);
-                hideKeyboard(getParentFragment());
-                MainActivity.currentQuery.query = query;
-                populateResults();
-                return true;
-            }
-        };
-        searchBar.setOnQueryTextListener(sbListener);
-
-        ArrayAdapter<String> catAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, category_names);
-        Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
-        catSpinner.setAdapter(catAdapt);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("Search Item Click", String.valueOf(position));
-                Coupon c = (Coupon) parent.getAdapter().getItem(position);
-                MainActivity.coupon_index = MainActivity.couponCollection.indexOf(c);
-                Log.d("Search Item Click", String.valueOf(MainActivity.coupon_index));
-
-                NavController nc = Navigation.findNavController(v);
-                nc.navigate(R.id.action_navigation_search_to_navigation_coupon);
-            }
-        });
+        setListeners(v);
         return v;
     }
 
@@ -207,5 +157,95 @@ public class SearchFragment extends Fragment {
             view = new View(activity);
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public void setListeners(View v) {
+        SearchView.OnQueryTextListener sbListener = new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // your text view here
+                Log.d("Searchbar TextChange", newText);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.d("Searchbar TextSubmit", query);
+                hideKeyboard(getParentFragment());
+                MainActivity.currentQuery.query = query;
+                checkFilters();
+                populateResults();
+                return true;
+            }
+        };
+
+        ImageButton filterButton = v.findViewById(R.id.filter_button);
+        SearchView searchBar = v.findViewById(R.id.search_bar);
+        ListView lv = v.findViewById(R.id.search_results);
+
+        filterButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                checkFilters();
+                populateResults();
+                toggleFilters();
+            }
+        });
+
+        searchBar.setOnQueryTextListener(sbListener);
+
+        ArrayAdapter<String> catAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, category_names);
+        Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
+        catSpinner.setAdapter(catAdapt);
+
+        ArrayAdapter<String> brandAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, SearchQuery.getUniqueBrands());
+        Spinner brandSpinner = v.findViewById(R.id.paramcb_brand_spinner);
+        brandSpinner.setAdapter(brandAdapt);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Search Item Click", String.valueOf(position));
+                Coupon c = (Coupon) parent.getAdapter().getItem(position);
+                MainActivity.coupon_index = MainActivity.couponCollection.indexOf(c);
+                Log.d("Search Item Click", String.valueOf(MainActivity.coupon_index));
+
+                NavController nc = Navigation.findNavController(v);
+                nc.navigate(R.id.action_navigation_search_to_navigation_coupon);
+            }
+        });
+    }
+
+    public void checkFilters() {
+        View v = getView();
+        SearchView sv = v.findViewById(R.id.search_bar);
+        String query = sv.getQuery().toString();
+        MainActivity.currentQuery = new SearchQuery(query);
+
+        SearchQuery sq = MainActivity.currentQuery;
+
+        boolean bxgx = ((CheckBox) v.findViewById(R.id.paramcb_bxgx)).isChecked();
+        boolean freebie = ((CheckBox) v.findViewById(R.id.paramcb_freebie)).isChecked();
+        boolean dollar = ((CheckBox) v.findViewById(R.id.paramcb_dollar)).isChecked();
+        boolean percent = ((CheckBox) v.findViewById(R.id.paramcb_percent)).isChecked();
+
+        String[] attrName = new String[] {"BXGX", "Freebie", "%off", "$off"};
+        if (bxgx) {
+            sq.types.add("BXGX");
+        }
+        if (freebie) {
+            sq.types.add("Freebie");
+        }
+        if (dollar) {
+            sq.types.add("$off");
+        }
+        if (percent) {
+            sq.types.add("%off");
+        }
+
+        Spinner brandSpinner = v.findViewById(R.id.paramcb_brand_spinner);
+        sq.brands.add(brandSpinner.getSelectedItem().toString());
+
+        Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
+        sq.categories.add(catSpinner.getSelectedItem().toString());
     }
 }

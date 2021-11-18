@@ -53,13 +53,13 @@ public class SearchQuery {
 
             // Check brand if not empty
             if (!sq.brands.isEmpty()) {
-                if (!sq.brands.contains(c.brand)) {
+                if (!sq.brands.contains(c.brand) && !sq.brands.contains("All Brands")) {
                     continue;
                 }
             }
 
             // Check categories if not empty
-            if (!sq.categories.isEmpty()) {
+            if (!sq.categories.isEmpty() && !sq.categories.contains("All")) {
                 Set<String> searchCategories = new HashSet<>();
                 for (String category : sq.categories) {
                     String toLowerCase = category.toLowerCase();
@@ -91,5 +91,17 @@ public class SearchQuery {
         }
 
         return results;
+    }
+
+    public static ArrayList<String> getUniqueBrands() {
+        ArrayList<String> output = new ArrayList<>();
+        output.add("All Brands");
+        for (int i = 0; i < MainActivity.couponCollection.size(); ++i) {
+            Coupon c = MainActivity.couponCollection.get(i);
+            if (!output.contains(c.brand)) {
+                output.add(c.brand);
+            }
+        }
+        return output;
     }
 }
