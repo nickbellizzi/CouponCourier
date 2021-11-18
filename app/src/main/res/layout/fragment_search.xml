@@ -57,7 +57,7 @@
                 android:paddingBottom="8dp"
                 android:text="@string/search_filters"
                 android:textAlignment="center"
-                android:textSize="36dp" />
+                android:textSize="36sp" />
 
             <LinearLayout
                 android:id="@+id/paramcb_layout"
