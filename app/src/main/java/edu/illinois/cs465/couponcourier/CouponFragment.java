@@ -116,7 +116,7 @@ public class CouponFragment extends Fragment {
             if (!coupon.expDate.isEmpty()) expiration = coupon.expDate;
             if (!coupon.brand.isEmpty()) brand = coupon.brand;
             if (!coupon.deal.isEmpty()) discount = coupon.deal;
-            restrictions = coupon.additionalInfo;
+            if (!coupon.additionalInfo.isEmpty()) restrictions = coupon.additionalInfo;
         } catch (Exception e) {
             e.printStackTrace();
         }
