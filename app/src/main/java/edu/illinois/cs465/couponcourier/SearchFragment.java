@@ -43,7 +43,7 @@ public class SearchFragment extends Fragment {
     public static boolean filtersVisible = false;
 
     // Array of different category types
-    ArrayList<String> category_names = new ArrayList<String> (Arrays.asList("All", "Clothing", "Electronics", "Shoes", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
+    ArrayList<String> category_names = new ArrayList<String> (Arrays.asList("All Categories", "Clothing", "Electronics", "Shoes", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
 
     // TODO: Rename and change types of parameters
     private String mParam1;

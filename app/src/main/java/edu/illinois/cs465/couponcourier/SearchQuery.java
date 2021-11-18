@@ -59,7 +59,7 @@ public class SearchQuery {
             }
 
             // Check categories if not empty
-            if (!sq.categories.isEmpty() && !sq.categories.contains("All")) {
+            if (!sq.categories.isEmpty() && !sq.categories.contains("All Categories")) {
                 Set<String> searchCategories = new HashSet<>();
                 for (String category : sq.categories) {
                     String toLowerCase = category.toLowerCase();
