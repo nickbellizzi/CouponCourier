@@ -106,14 +106,9 @@ public class UploadFragment extends Fragment {
         Set<String> types = new HashSet<>();
 
 
-        for(Coupon c : MainActivity.couponCollection){
-            brands.add(c.brand);
-            types.add(c.type);
-            for(String s : c.category){
-                categories.add(s);
-            }
-
-        }
+        categories.addAll(SearchFragment.category_names);
+        types.addAll(SearchFragment.coupon_types);
+        brands.addAll(SearchQuery.getUniqueBrands());
 
 
         ArrayList<String> category = new ArrayList<>();

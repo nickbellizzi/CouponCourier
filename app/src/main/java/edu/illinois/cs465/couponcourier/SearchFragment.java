@@ -43,7 +43,10 @@ public class SearchFragment extends Fragment {
     public static boolean filtersVisible = false;
 
     // Array of different category types
-    ArrayList<String> category_names = new ArrayList<String> (Arrays.asList("All Categories", "Clothing", "Electronics", "Shoes", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
+    public static final ArrayList<String> category_names = new ArrayList<String> (Arrays.asList("All Categories", "Clothing", "Electronics", "Footwear", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
+
+    // Array of coupon types
+    public static final ArrayList<String> coupon_types = new ArrayList<String>(Arrays.asList("BXGX", "Freebie", "%off", "$off"));
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -228,7 +231,6 @@ public class SearchFragment extends Fragment {
         boolean dollar = ((CheckBox) v.findViewById(R.id.paramcb_dollar)).isChecked();
         boolean percent = ((CheckBox) v.findViewById(R.id.paramcb_percent)).isChecked();
 
-        String[] attrName = new String[] {"BXGX", "Freebie", "%off", "$off"};
         if (bxgx) {
             sq.types.add("BXGX");
         }
