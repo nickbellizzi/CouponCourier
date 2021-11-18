@@ -34,7 +34,7 @@ public class Coupon {
             this.deal = jsonCoupon.getString("Deal");
             this.expDate = jsonCoupon.getString("ExpDate");
             this.uploadDate = jsonCoupon.getString("UploadDate");
-            this.additionalInfo = jsonCoupon.optString("Additional");
+            this.additionalInfo = jsonCoupon.getJSONObject("Attributes").optString("Additional");
 
             JSONObject attr = jsonCoupon.getJSONObject("Attributes");
             this.attributes.put("In-Store", attr.getBoolean("In-Store"));
