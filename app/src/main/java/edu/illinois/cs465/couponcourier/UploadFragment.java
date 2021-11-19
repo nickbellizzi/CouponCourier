@@ -110,8 +110,10 @@ public class UploadFragment extends Fragment {
 
 
         categories.addAll(SearchFragment.category_names);
+        categories.remove("All Categories");
         types.addAll(SearchFragment.coupon_types);
         brands.addAll(SearchQuery.getUniqueBrands());
+        brands.remove("All Brands");
 
 
         ArrayList<String> category = new ArrayList<>();
