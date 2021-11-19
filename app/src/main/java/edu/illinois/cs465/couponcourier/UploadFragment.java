@@ -1,12 +1,15 @@
 package edu.illinois.cs465.couponcourier;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -218,45 +221,52 @@ public class UploadFragment extends Fragment {
                         String selectedAdditionalInformation = additionalInfoPicker.getText().toString().trim();
                         String selectedProduct = productPicker.getText().toString().trim();
                         String selectedDeal = dealPicker.getText().toString().trim();
+                        Activity mActivity = getActivity();
 
                         if(selectedBrand.equalsIgnoreCase("-")){
-                            Toast.makeText(getContext(), "Please select a brand!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a brand!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
                             dialog.cancel();
                             return;
                         }
 
                         if(selectedCategory.equalsIgnoreCase("-")){
-                            Toast.makeText(getContext(), "Please select a category!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a category!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Please select a category!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
 
                         if(selectedType.equalsIgnoreCase("-")){
-                            Toast.makeText(getContext(), "Please select a type!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a type!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Please select a type!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
 
                         if(selectedDeal.isEmpty()){
-                            Toast.makeText(getContext(), "Please enter a valid deal!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please enter a valid deal!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Please enter a valid deal!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
 
                         if(selectedCode.isEmpty()){
-                            Toast.makeText(getContext(), "Please enter a valid code!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please enter a valid code!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Please enter a valid code!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
 
                         if(selectedExpDate.isEmpty()){
-                            Toast.makeText(getContext(), "Please enter an expiration date!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please enter an expiration date!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Please enter an expiration date!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
 
-                        if(!(selectedInStore || selectedOnline || selectedMilitaryId || selectedStacked)){
-                            Toast.makeText(getContext(), "Please select one attribute!", Toast.LENGTH_SHORT).show();
+                        if(!(selectedInStore || selectedOnline)){
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select if the coupon can be used in-store, online, or both!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Please select one attribute!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             return;
                         }
@@ -279,11 +289,13 @@ public class UploadFragment extends Fragment {
                         try{
                             MainActivity.couponCollection.add(newCoupon);
                         }catch(Exception e){
-                            Toast.makeText(getContext(), "Failed to upload coupon!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Failed to upload coupon!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "Failed to upload coupon!", Toast.LENGTH_LONG).show();
                             return;
                         }
 
-                        Toast.makeText(getContext(), "Successfully uploaded coupon!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='green'>Successfully uploaded coupon!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getContext(), "Successfully uploaded coupon!", Toast.LENGTH_LONG).show();
 
                         brandSpinner.setSelection(0);
                         categorySpinner.setSelection(0);
