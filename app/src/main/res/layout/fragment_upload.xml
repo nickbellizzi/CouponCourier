@@ -341,9 +341,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:lines="8"
                             android:maxLines="10"
-                            android:minLines="6"
+                            android:minLines="1"
                             android:scrollbars="vertical"
                             android:layout_marginHorizontal="20dp"
                             android:windowSoftInputMode="stateVisible|adjustResize"/>

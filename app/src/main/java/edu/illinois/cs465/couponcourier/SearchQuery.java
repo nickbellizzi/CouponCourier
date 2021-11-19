@@ -40,7 +40,6 @@ public class SearchQuery {
         ArrayList<Coupon> results = new ArrayList<>();
 
         String query = sq.query.toLowerCase().trim();
-        if (query.isEmpty()) return coupons;
 
         for (int i = 0; i < coupons.size(); ++i) {
             Coupon c = coupons.get(i);
