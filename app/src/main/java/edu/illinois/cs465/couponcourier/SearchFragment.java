@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -99,16 +100,20 @@ public class SearchFragment extends Fragment {
         Log.d("Filter button", "Toggling!");
         ListView results = getActivity().findViewById(R.id.search_results);
         LinearLayout params = getActivity().findViewById(R.id.search_param_layout);
+        TextView endResults = getActivity().findViewById(R.id.search_end);
         hideKeyboard(getParentFragment());
         if (!SearchFragment.filtersVisible) {
             results.setVisibility(View.GONE);
+            endResults.setVisibility(View.GONE);
             params.setVisibility(View.VISIBLE);
+
             SearchFragment.filtersVisible = true;
             return;
         }
         params.setVisibility(View.GONE);
         populateResults();
         results.setVisibility(View.VISIBLE);
+        endResults.setVisibility(View.VISIBLE);
         SearchFragment.filtersVisible = false;
     }
 
