@@ -80,7 +80,6 @@ public class Coupon {
     public String toString() {
         String out_product = "";
         if (!product.isEmpty()) out_product = " (" + String.valueOf(product) + ')';
-        System.out.println(deal);
         String output = brand + ": " + deal + out_product;
         return output;
     }

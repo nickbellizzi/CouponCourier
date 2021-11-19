@@ -108,7 +108,6 @@ public class CouponFragment extends Fragment {
         JSONArray jArr = MainActivity.jsonArr;
         try {
             Coupon coupon = MainActivity.couponCollection.get(MainActivity.coupon_index);
-            System.out.println(MainActivity.coupon_index);
             in_store_bool = coupon.attributes.get("In-Store");
             online_bool = coupon.attributes.get("Online");
             military_bool = coupon.attributes.get("MilitaryID");

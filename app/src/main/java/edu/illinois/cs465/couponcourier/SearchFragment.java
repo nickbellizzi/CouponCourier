@@ -3,11 +3,13 @@ package edu.illinois.cs465.couponcourier;
 import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import android.widget.ArrayAdapter;
 
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -117,22 +120,16 @@ public class SearchFragment extends Fragment {
 
     public void populateResults() {
         try {
-            //ArrayList<Coupon> coupons = MainActivity.couponCollection;
             SearchQuery sq = MainActivity.currentQuery;
             ArrayList<Coupon> coupons = SearchQuery.search(sq);
-            SearchView sv = getView().findViewById(R.id.search_bar);
-            sv.setQuery(sq.query, false);
 
             int len = coupons.size();
-            Log.d("populateResults", String.valueOf(len));
             List<String> listContents = new ArrayList<String>(len);
             for (int i = 0; i < len; ++i) {
                 Coupon coupon = coupons.get(i);
                 String product = "";
                 if (!coupon.product.isEmpty()) product = " (" + String.valueOf(coupon.product) + ')';
                 String brand = coupon.brand + ": " + coupon.deal + product;
-//                String brand = coupon.brand + " " + coupon.product + " (" + String.valueOf(coupon.couponId) + ')';
-                Log.d("Populating", brand);
                 listContents.add(brand);
             }
             Log.d("a", String.valueOf(listContents.size()));
@@ -167,6 +164,9 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 // your text view here
+                MainActivity.currentQuery.query = newText;
+                populateResults();
+                System.out.println("HERE");
                 Log.d("Searchbar TextChange", newText);
                 return true;
             }

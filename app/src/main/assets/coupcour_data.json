@@ -617,16 +617,16 @@
     ],
     "ProductName": "",
     "Type": "%off",
-    "Deal": "40% Off With Purchase of $200+",
-    "Code": "8636",
-    "ExpDate": "2021-12-25",
+    "Deal": "20% Off Sitewide",
+    "Code": "CS465ISAWESOME",
+    "ExpDate": "2021-12-31",
     "UploadDate": "2021-12-9",
     "Attributes": {
-      "In-Store": false,
-      "Online": false,
+      "In-Store": true,
+      "Online": true,
       "MilitaryID": false,
       "Stackable": false,
-      "Additional": "Offer cannot be used with other coupons or promotions.\n"
+      "Additional": "Cannot be applied to previously placed orders.\nCan be used in combination with free shipping promo codes, but cannot be combined with other percent off promo codes.\nNot redeemable for cash or credit.\nNot valid on Nike SNKRS.\nNot valid on select products, including but not limited to Nike By You, gift cards, select Launch and SNKRS products, and Apple products.\nMust be entered prior to completing the order.\n"
     }
   },
   {

@@ -80,8 +80,7 @@ public class MainActivity extends AppCompatActivity {
             ex.printStackTrace();
             return null;
         }
-        Log.d("JSON_Load_Please", jsonStr);
-        // JSONArray jArr = new JSONArray(json);
+
         try {
             jsonArr = new JSONArray(jsonStr);
             int len = jsonArr.length();
