@@ -8,7 +8,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,9 +16,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     static protected JSONArray jsonArr = null;
 
     //
-    static protected Map<String, String> logos = new HashMap<String, String>();
+    static protected Map<String, String> logos = new HashMap<>();
 
     // This object handles search parameters across fragments.
     static protected SearchQuery currentQuery = new SearchQuery();
@@ -67,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
         logos.put("Vans", "@drawable/vans_logo");
     }
     protected String loadJSONFromAsset() {
-        String jsonStr = "";
+        String jsonStr;
         try {
             InputStream is = getAssets().open("coupcour_data.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            jsonStr = new String(buffer, "UTF-8");
+            jsonStr = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             jsonArr = new JSONArray(jsonStr);
-            int len = jsonArr.length();
+            //int len = jsonArr.length();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

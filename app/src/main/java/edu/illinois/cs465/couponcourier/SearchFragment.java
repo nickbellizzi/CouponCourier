@@ -3,13 +3,11 @@ package edu.illinois.cs465.couponcourier;
 import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +18,6 @@ import android.widget.ArrayAdapter;
 
 import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -47,10 +44,10 @@ public class SearchFragment extends Fragment {
     public static boolean filtersVisible = false;
 
     // Array of different category types
-    public static final ArrayList<String> category_names = new ArrayList<String> (Arrays.asList("All Categories", "Clothing", "Electronics", "Footwear", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
+    public static final ArrayList<String> category_names = new ArrayList<> (Arrays.asList("All Categories", "Clothing", "Electronics", "Footwear", "Groceries", "Food", "Personal Care", "Toys", "Home & Kitchen", "Travel"));
 
     // Array of coupon types
-    public static final ArrayList<String> coupon_types = new ArrayList<String>(Arrays.asList("BXGX", "Freebie", "%off", "$off"));
+    public static final ArrayList<String> coupon_types = new ArrayList<>(Arrays.asList("BXGX", "Freebie", "%off", "$off"));
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -129,16 +126,16 @@ public class SearchFragment extends Fragment {
             ArrayList<Coupon> coupons = SearchQuery.search(sq);
 
             int len = coupons.size();
-            List<String> listContents = new ArrayList<String>(len);
+            List<String> listContents = new ArrayList<>(len);
             for (int i = 0; i < len; ++i) {
                 Coupon coupon = coupons.get(i);
                 String product = "";
-                if (!coupon.product.isEmpty()) product = " (" + String.valueOf(coupon.product) + ')';
+                if (!coupon.product.isEmpty()) product = " (" + coupon.product + ')';
                 String brand = coupon.brand + ": " + coupon.deal + product;
                 listContents.add(brand);
             }
             Log.d("a", String.valueOf(listContents.size()));
-            ListView lv = (ListView) getView().findViewById(R.id.search_results);
+            ListView lv = getView().findViewById(R.id.search_results);
             if (lv != null) {
                 CouponAdapter adapter = new CouponAdapter(getActivity(), SearchQuery.search(MainActivity.currentQuery));
                 //ArrayAdapter<Coupon> adapter = new ArrayAdapter<Coupon>(getActivity(), android.R.layout.simple_list_item_1, coupons);
@@ -202,11 +199,11 @@ public class SearchFragment extends Fragment {
 
         searchBar.setOnQueryTextListener(sbListener);
 
-        ArrayAdapter<String> catAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, category_names);
+        ArrayAdapter<String> catAdapt = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, category_names);
         Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
         catSpinner.setAdapter(catAdapt);
 
-        ArrayAdapter<String> brandAdapt = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, SearchQuery.getUniqueBrands());
+        ArrayAdapter<String> brandAdapt = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, SearchQuery.getUniqueBrands());
         Spinner brandSpinner = v.findViewById(R.id.paramcb_brand_spinner);
         brandSpinner.setAdapter(brandAdapt);
 
