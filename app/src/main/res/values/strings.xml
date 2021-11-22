@@ -36,6 +36,7 @@
     <string name="off_absolute">$OFF</string>
     <string name="freebie">Freebie</string>
     <string name="off_relative">%OFF</string>
+    <string name="end_of_results">(End of Results)</string>
 
     <string-array name="brands">
         <item>Nike</item>

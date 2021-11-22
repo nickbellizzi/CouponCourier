@@ -147,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="(End of Results)"
+            android:text="@string/end_of_results"
             android:textColor="@color/button_text_color" />
     </LinearLayout>
 

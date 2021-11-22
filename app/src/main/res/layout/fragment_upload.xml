@@ -27,6 +27,7 @@
             android:background="@color/forest_green_dark"/>
 
         <ScrollView
+            android:id="@+id/submission_scroll"
             android:layout_width="match_parent"
             android:layout_height="620dp">
 

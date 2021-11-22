@@ -21,6 +21,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -225,51 +226,114 @@ public class UploadFragment extends Fragment {
                         String selectedDeal = dealPicker.getText().toString().trim();
                         Activity mActivity = getActivity();
 
+                        ScrollView scrollView = getView().findViewById(R.id.submission_scroll);
+
                         if(selectedBrand.equalsIgnoreCase("-")){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a brand!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    View incompleteView = getView().findViewById(R.id.brandSpinner);
+                                    scrollView.smoothScrollTo(0, incompleteView.getTop());
+                                    incompleteView.setFocusableInTouchMode(true);
+                                    incompleteView.requestFocus();
+                                }
+                            });
                             return;
                         }
 
                         if(selectedCategory.equalsIgnoreCase("-")){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a category!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
-//                            Toast.makeText(getContext(), "Please select a category!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    View incompleteView = getView().findViewById(R.id.categorySpinner);
+                                    scrollView.smoothScrollTo(0, incompleteView.getTop());
+                                    incompleteView.setFocusableInTouchMode(true);
+                                    incompleteView.requestFocus();
+                                }
+                            });
                             return;
                         }
 
                         if(selectedType.equalsIgnoreCase("-")){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a type!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
-//                            Toast.makeText(getContext(), "Please select a type!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    View incompleteView = getView().findViewById(R.id.typeSpinner);
+                                    scrollView.smoothScrollTo(0, incompleteView.getTop());
+                                    incompleteView.setFocusableInTouchMode(true);
+                                    incompleteView.requestFocus();
+                                }
+                            });
                             return;
                         }
 
                         if(selectedDeal.isEmpty()){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please enter a valid deal!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
-//                            Toast.makeText(getContext(), "Please enter a valid deal!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    View incompleteView = getView().findViewById(R.id.dealInput);
+                                    scrollView.smoothScrollTo(0, incompleteView.getTop());
+                                    incompleteView.setFocusableInTouchMode(true);
+                                    incompleteView.requestFocus();
+                                }
+                            });
                             return;
                         }
 
                         if(selectedCode.isEmpty()){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please enter a valid code!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
-//                            Toast.makeText(getContext(), "Please enter a valid code!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    View incompleteView = getView().findViewById(R.id.codeInput);
+                                    scrollView.smoothScrollTo(0, incompleteView.getTop());
+                                    incompleteView.setFocusableInTouchMode(true);
+                                    incompleteView.requestFocus();
+                                }
+                            });
                             return;
                         }
 
                         if(selectedExpDate.isEmpty()){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please enter an expiration date!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
-//                            Toast.makeText(getContext(), "Please enter an expiration date!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    View incompleteView = getView().findViewById(R.id.expDatePicker);
+                                    scrollView.smoothScrollTo(0, incompleteView.getTop());
+                                    incompleteView.setFocusableInTouchMode(true);
+                                    incompleteView.requestFocus();
+                                }
+                            });
                             return;
                         }
 
                         if(!(selectedInStore || selectedOnline)){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select if the coupon can be used in-store, online, or both!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
-//                            Toast.makeText(getContext(), "Please select one attribute!", Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            scrollView.post(new Runnable() {
+                                @RequiresApi(api = Build.VERSION_CODES.Q)
+                                @Override
+                                public void run() {
+                                    scrollView.scrollToDescendant(getView().findViewById(R.id.inStoreCheckbox));
+                                }
+                            });
                             return;
                         }
 
