@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/icon_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            >
+            <ImageView
+                android:id="@+id/instore_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:foregroundTintMode="add"
+                android:src="@drawable/ic_baseline_storefront_24"
+                app:tint="@android:color/black"/>
+            <ImageView
+                android:id="@+id/online_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:foregroundTintMode="add"
+                android:src="@drawable/online"
+                app:tint="@android:color/black"/>
+            <ImageView
+                android:id="@+id/military_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:foregroundTintMode="add"
+                android:src="@drawable/ic_baseline_military_tech_24"
+                app:tint="@android:color/black"/>
+            <ImageView
+                android:id="@+id/stackable_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:foregroundTintMode="add"
+                android:src="@drawable/stackable"
+                app:tint="@android:color/black"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/coupon_icon"
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:src="@drawable/nike_logo"
+                android:padding="8dp"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:layout_toEndOf="@id/coupon_icon"
+                android:layout_alignTop="@id/coupon_icon"/>
+            <TextView
+                android:id="@+id/brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/coupon_icon"
+                android:layout_toEndOf="@id/coupon_icon"
+                android:layout_below="@id/title"
+                android:gravity="bottom"
+                android:textSize="8pt" />
+            <TextView
+                android:id="@+id/exp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/brand"
+                android:layout_toEndOf="@id/brand"
+                android:gravity="end"
+                android:padding="8dp"
+                android:textSize="8pt"
+                android:textAlignment="viewEnd"
+                android:layout_alignEnd="@id/title"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

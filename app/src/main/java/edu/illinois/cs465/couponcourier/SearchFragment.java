@@ -140,7 +140,8 @@ public class SearchFragment extends Fragment {
             Log.d("a", String.valueOf(listContents.size()));
             ListView lv = (ListView) getView().findViewById(R.id.search_results);
             if (lv != null) {
-                ArrayAdapter<Coupon> adapter = new ArrayAdapter<Coupon>(getActivity(), android.R.layout.simple_list_item_1, coupons);
+                CouponAdapter adapter = new CouponAdapter(getActivity(), SearchQuery.search(MainActivity.currentQuery));
+                //ArrayAdapter<Coupon> adapter = new ArrayAdapter<Coupon>(getActivity(), android.R.layout.simple_list_item_1, coupons);
                 lv.setAdapter(adapter);
                 Log.d("Yay", "I set the adapter.");
             } else {
@@ -256,3 +257,4 @@ public class SearchFragment extends Fragment {
         sq.categories.add(catSpinner.getSelectedItem().toString());
     }
 }
+

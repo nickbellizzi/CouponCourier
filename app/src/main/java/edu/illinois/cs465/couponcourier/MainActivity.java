@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         logos.put("Asics", "@drawable/asics_logo");
         logos.put("Under Armor", "@drawable/under_armour_logo");
         logos.put("Vans", "@drawable/vans_logo");
-//        logos.put("Adidas", "@drawable/nike_logo");
     }
     protected String loadJSONFromAsset() {
         String jsonStr = "";

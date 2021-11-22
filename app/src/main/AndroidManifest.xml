@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SearchableActivity"
+        <activity android:name=".CouponAdapter"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"></action>
