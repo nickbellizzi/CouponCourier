@@ -23,6 +23,10 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import androidx.fragment.app.Fragment;
 
 /**
@@ -210,7 +214,9 @@ public class CouponFragment extends Fragment {
     }
 
     public void saveBitmap(Bitmap bitmap) {
-        File imagePath = new File(Environment.getExternalStorageDirectory() + "/screenshot.png");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM_dd_yyyy_hh_mm", Locale.getDefault());
+        String currentDateandTime = sdf.format(new Date());
+        File imagePath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/coupon_code" + currentDateandTime + ".png");
         FileOutputStream fos;
 
         try {
