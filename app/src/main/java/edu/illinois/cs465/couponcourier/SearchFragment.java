@@ -199,6 +199,7 @@ public class SearchFragment extends Fragment {
         });
 
         searchBar.setOnQueryTextListener(sbListener);
+        searchBar.setQuery(MainActivity.currentQuery.query, false);
 
         ArrayAdapter<String> catAdapt = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, category_names);
         Spinner catSpinner = v.findViewById(R.id.paramcb_category_spinner);
