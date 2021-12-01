@@ -149,6 +149,21 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginEnd="32dp"/>
+
+            <Button
+                android:id="@+id/filter_apply_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/forest_green_dark"
+                android:checkable="false"
+                android:ems="10"
+                android:text="APPLY FILTERS"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
+
         </LinearLayout>
         <ListView
             android:id="@+id/search_results"
