@@ -129,23 +129,13 @@ public class CouponFragment extends Fragment {
         ImageButton screenshot_button = (ImageButton) root.findViewById(R.id.screenshot_button);
         ImageButton copy_button = (ImageButton) root.findViewById(R.id.copy_button);
 
-        redeem_button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                confirmRedemption(root);
-            }
-        });
+        redeem_button.setOnClickListener(v -> confirmRedemption(root));
 
-        screenshot_button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                takeScreenshot();
-            }
-        });
+        screenshot_button.setOnClickListener(v -> takeScreenshot());
 
-        copy_button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                TextView coupon_code_text = (TextView) root.findViewById(R.id.coupon_code_text);
-                copyCode(coupon_code_text.getText().toString());
-            }
+        copy_button.setOnClickListener(v -> {
+            TextView coupon_code_text = (TextView) root.findViewById(R.id.coupon_code_text);
+            copyCode(coupon_code_text.getText().toString());
         });
 
         ImageView couponLogo =(ImageView) root.findViewById(R.id.couponLogo);
@@ -226,44 +216,14 @@ public class CouponFragment extends Fragment {
     }
 
 
-
-    protected static File screenshot(View view, String filename) {
-        Date date = new Date();
-
-        // Here we are initialising the format of our image name
-        CharSequence format = android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", date);
+    public void takeScreenshot(){
         try {
-            // Initialising the directory of storage
-            String dirpath = Environment.getExternalStorageDirectory() + "";
-            File file = new File(dirpath);
-            if (!file.exists()) {
-                boolean mkdir = file.mkdir();
-            }
-
-            // File name
-            String path = dirpath + "/" + filename + "-" + format + ".jpeg";
-            view.setDrawingCacheEnabled(true);
-            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-            view.setDrawingCacheEnabled(false);
-            File imageurl = new File(path);
-            FileOutputStream outputStream = new FileOutputStream(imageurl);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
-            outputStream.flush();
-            outputStream.close();
-            return imageurl;
-
-        } catch (FileNotFoundException io) {
-            io.printStackTrace();
+            Runtime.getRuntime().exec("input keyevent 120");
+            Toast.makeText(getActivity(), "You can view your code in <strong>/sdcard/Pictures/Screenshots</strong>", Toast.LENGTH_LONG).show();
         } catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(getActivity(), "Error taking screenshot: <strong>" + e + "</strong>", Toast.LENGTH_LONG).show();
         }
-        return null;
-    }
-
-    public void takeScreenshot(){
-        Toast.makeText(getActivity(), "You just Captured a Screenshot," +
-                " Open Gallery/ File Storage to view your captured Screenshot", Toast.LENGTH_SHORT).show();
-        screenshot(getActivity().getWindow().getDecorView().getRootView(), "result");
     }
 
     public void copyCode(String text){
