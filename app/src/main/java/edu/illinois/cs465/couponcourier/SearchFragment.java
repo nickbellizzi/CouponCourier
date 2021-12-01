@@ -90,6 +90,7 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_search, container, false);
         setListeners(v);
+        populateResults();
         return v;
     }
 
@@ -99,6 +100,7 @@ public class SearchFragment extends Fragment {
         LinearLayout params = getActivity().findViewById(R.id.search_param_layout);
         TextView endResults = getActivity().findViewById(R.id.search_end);
         hideKeyboard(getParentFragment());
+        populateResults();
         if (!SearchFragment.filtersVisible) {
             results.setVisibility(View.GONE);
             endResults.setVisibility(View.GONE);
@@ -108,7 +110,6 @@ public class SearchFragment extends Fragment {
             return;
         }
         params.setVisibility(View.GONE);
-        populateResults();
         results.setVisibility(View.VISIBLE);
         endResults.setVisibility(View.VISIBLE);
         SearchFragment.filtersVisible = false;
