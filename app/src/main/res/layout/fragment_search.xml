@@ -40,7 +40,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/search_bar"
                 android:queryHint="@string/search_hint"
-                android:iconifiedByDefault="false"/>
+                android:iconifiedByDefault="false"
+                android:background="@drawable/background"/>
         </LinearLayout>
 
         <LinearLayout
