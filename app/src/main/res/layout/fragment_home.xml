@@ -18,7 +18,9 @@
             android:layout_height="wrap_content"
             app:queryHint="@string/search_hint"
             app:iconifiedByDefault="false"
-            android:background="@color/white"/>
+
+            android:background="@drawable/background"/>
+
 
         <TextView
             android:layout_width="wrap_content"

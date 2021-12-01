@@ -4,5 +4,6 @@
         android:id="@+id/clothes_icon"
         android:drawable="@drawable/clothes_icon"
         android:width="40dp"
-        android:height="40dp"/>
+        android:height="40dp"
+        />
 </layer-list>
