@@ -1,5 +1,6 @@
 package edu.illinois.cs465.couponcourier;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -70,6 +71,8 @@ public class CouponFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        //ActionBar ab = getActivity().getActionBar();
+        //ab.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

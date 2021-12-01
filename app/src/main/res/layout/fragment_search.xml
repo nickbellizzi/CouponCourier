@@ -60,6 +60,15 @@
                 android:textAlignment="center"
                 android:textSize="36sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:paddingBottom="8dp"
+                android:text="Hover over a deal parameter for more information."
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
             <LinearLayout
                 android:id="@+id/paramcb_layout"
                 android:layout_width="match_parent"
@@ -77,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/off_relative"
+                    android:tooltipText="Deal that subtracts a percentage off."
                     android:textSize="10pt" />
 
                 <CheckBox
@@ -90,6 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/off_absolute"
+                    android:tooltipText="Deal that subtracts a flat amount off."
                     android:textSize="10pt" />
 
                 <CheckBox
@@ -103,6 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/bxgx"
+                    android:tooltipText="Deal that grants some discount if you make one or more other purchases in combination."
                     android:textSize="10pt" />
 
                 <CheckBox
@@ -116,6 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/freebie"
+                    android:tooltipText="Deal that gives you a free item or service."
                     android:textSize="10pt" />
             </LinearLayout>
 
