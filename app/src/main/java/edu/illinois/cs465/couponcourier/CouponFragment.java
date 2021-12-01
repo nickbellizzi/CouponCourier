@@ -4,10 +4,10 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-
+import android.os.Environment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,31 +18,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.Manifest;
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.os.Bundle;
-import android.os.Environment;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -104,8 +84,7 @@ public class CouponFragment extends Fragment {
         Boolean online_bool = Boolean.FALSE;
         Boolean military_bool = Boolean.FALSE;
         Boolean stackable_bool = Boolean.FALSE;
-        String brand_logo_img = "@drawable/nike_logo";
-        JSONArray jArr = MainActivity.jsonArr;
+
         try {
             Coupon coupon = MainActivity.couponCollection.get(MainActivity.coupon_index);
             in_store_bool = coupon.attributes.get("In-Store");
@@ -131,7 +110,10 @@ public class CouponFragment extends Fragment {
 
         redeem_button.setOnClickListener(v -> confirmRedemption(root));
 
-        screenshot_button.setOnClickListener(v -> takeScreenshot());
+        screenshot_button.setOnClickListener(view -> {
+            Bitmap bitmap = takeScreenshot();
+            saveBitmap(bitmap);
+        });
 
         copy_button.setOnClickListener(v -> {
             TextView coupon_code_text = (TextView) root.findViewById(R.id.coupon_code_text);
@@ -171,58 +153,72 @@ public class CouponFragment extends Fragment {
         builder.setTitle("ARE YOU SURE YOU'D LIKE TO REDEEM THIS COUPON?");
 //        builder.setMessage("Message");
         builder.setPositiveButton("Confirm",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        System.out.println("CONFIRM");
+                (dialog, which) -> {
+                    System.out.println("CONFIRM");
+                    String coupon_code = "";
 
-                        String coupon_code = "";
-                        JSONArray jArr = MainActivity.jsonArr;
-                        try {
-                            Coupon c = MainActivity.couponCollection.get(MainActivity.coupon_index);
-                            coupon_code = c.code;
-                            System.out.println(c);
-                            MainActivity.couponCollection.remove(MainActivity.coupon_index);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-
-                        Button redeem_button = (Button) root.findViewById(R.id.redeem_button);
-                        ImageButton screenshot_button = (ImageButton) root.findViewById(R.id.screenshot_button);
-                        ImageButton copy_button = (ImageButton) root.findViewById(R.id.copy_button);
-                        TextView coupon_code_title = (TextView) root.findViewById(R.id.coupon_code_title);
-                        TextView coupon_code_text = (TextView) root.findViewById(R.id.coupon_code_text);
-                        LinearLayout coupon_code_container = (LinearLayout) root.findViewById(R.id.coupon_code_container);
-
-                        redeem_button.setVisibility(View.GONE);
-                        screenshot_button.setVisibility(View.VISIBLE);
-                        copy_button.setVisibility(View.VISIBLE);
-                        coupon_code_title.setVisibility(View.VISIBLE);
-                        coupon_code_text.setVisibility(View.VISIBLE);
-                        coupon_code_text.setText(coupon_code);
-                        coupon_code_container.setVisibility(View.VISIBLE);
+                    try {
+                        Coupon c = MainActivity.couponCollection.get(MainActivity.coupon_index);
+                        coupon_code = c.code;
+                        System.out.println(c);
+                        MainActivity.couponCollection.remove(MainActivity.coupon_index);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
+
+
+                    Button redeem_button = (Button) root.findViewById(R.id.redeem_button);
+                    ImageButton screenshot_button = (ImageButton) root.findViewById(R.id.screenshot_button);
+                    ImageButton copy_button = (ImageButton) root.findViewById(R.id.copy_button);
+                    TextView coupon_code_title = (TextView) root.findViewById(R.id.coupon_code_title);
+                    TextView coupon_code_text = (TextView) root.findViewById(R.id.coupon_code_text);
+                    LinearLayout coupon_code_container = (LinearLayout) root.findViewById(R.id.coupon_code_container);
+
+                    redeem_button.setVisibility(View.GONE);
+                    screenshot_button.setVisibility(View.VISIBLE);
+                    copy_button.setVisibility(View.VISIBLE);
+                    coupon_code_title.setVisibility(View.VISIBLE);
+                    coupon_code_text.setVisibility(View.VISIBLE);
+                    coupon_code_text.setText(coupon_code);
+                    coupon_code_container.setVisibility(View.VISIBLE);
                 });
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                System.out.println("REJECT");
-            }
-        });
+        builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> System.out.println("REJECT"));
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
 
-    public void takeScreenshot(){
+//    public Bitmap takeScreenshot(){
+//        try {
+//            Runtime.getRuntime().exec("input keyevent 120");
+//            Toast.makeText(getActivity(), Html.fromHtml("You can review your code <b>here</b>"), Toast.LENGTH_LONG).show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            Toast.makeText(getActivity(), Html.fromHtml("Error saving: <b>" + e + "</b>"), Toast.LENGTH_LONG).show();
+//        }
+//        return null;
+//    }
+
+    public Bitmap takeScreenshot() {
+        View rootView = getView().getRootView();
+        rootView.setDrawingCacheEnabled(true);
+        return rootView.getDrawingCache();
+    }
+
+    public void saveBitmap(Bitmap bitmap) {
+        File imagePath = new File(Environment.getExternalStorageDirectory() + "/screenshot.png");
+        FileOutputStream fos;
+
         try {
-            Runtime.getRuntime().exec("input keyevent 120");
-            Toast.makeText(getActivity(), "You can view your code in <strong>/sdcard/Pictures/Screenshots</strong>", Toast.LENGTH_LONG).show();
+            fos = new FileOutputStream(imagePath);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+            Toast.makeText(getActivity(), Html.fromHtml("You can review your code <b>" + imagePath.getPath() + "</b>"), Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(getActivity(), "Error taking screenshot: <strong>" + e + "</strong>", Toast.LENGTH_LONG).show();
+            Log.e("GREC", e.getMessage(), e);
+            Toast.makeText(getActivity(), Html.fromHtml("Error saving: <b>" + e + "</b>"), Toast.LENGTH_LONG).show();
         }
     }
 
