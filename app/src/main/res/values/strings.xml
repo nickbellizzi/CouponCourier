@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_search_category">Popular Categories</string>
-    <string name="search_hint">search by brand, category, etc.</string>
+    <string name="search_hint">search by brand or product</string>
     <string name="coupon_submission">Coupon Submission</string>
 
     <string name="brand_dropdown">Brand<font color="#FF0000">*</font></string>

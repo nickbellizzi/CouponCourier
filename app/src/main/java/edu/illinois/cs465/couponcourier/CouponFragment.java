@@ -117,6 +117,7 @@ public class CouponFragment extends Fragment {
 
         redeem_button.setOnClickListener(v -> confirmRedemption(root));
 
+        // Referenced https://stackoverflow.com/a/38158432
         screenshot_button.setOnClickListener(view -> {
             Bitmap bitmap = takeScreenshot();
             saveBitmap(bitmap);
@@ -194,18 +195,6 @@ public class CouponFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-
-//    public Bitmap takeScreenshot(){
-//        try {
-//            Runtime.getRuntime().exec("input keyevent 120");
-//            Toast.makeText(getActivity(), Html.fromHtml("You can review your code <b>here</b>"), Toast.LENGTH_LONG).show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            Toast.makeText(getActivity(), Html.fromHtml("Error saving: <b>" + e + "</b>"), Toast.LENGTH_LONG).show();
-//        }
-//        return null;
-//    }
 
     public Bitmap takeScreenshot() {
         View rootView = getView().getRootView();
