@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -89,7 +90,9 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_search, container, false);
+        Log.d("PreL", "Pre-parade");
         setListeners(v);
+        Log.d("PostL", "Post-parade");
         populateResults();
         return v;
     }
@@ -187,16 +190,20 @@ public class SearchFragment extends Fragment {
         };
 
         ImageButton filterButton = v.findViewById(R.id.filter_button);
+        Button filterApplyButton = v.findViewById(R.id.filter_apply_button);
         SearchView searchBar = v.findViewById(R.id.search_bar);
         ListView lv = v.findViewById(R.id.search_results);
 
-        filterButton.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener filterListener = new View.OnClickListener() {
             public void onClick(View v) {
                 checkFilters();
                 populateResults();
                 toggleFilters();
             }
-        });
+        };
+
+        filterButton.setOnClickListener(filterListener);
+        filterApplyButton.setOnClickListener(filterListener);
 
         searchBar.setOnQueryTextListener(sbListener);
         searchBar.setQuery(MainActivity.currentQuery.query, false);
