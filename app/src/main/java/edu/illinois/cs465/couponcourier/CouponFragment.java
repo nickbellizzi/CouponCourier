@@ -218,7 +218,7 @@ public class CouponFragment extends Fragment {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
-            Toast.makeText(getActivity(), Html.fromHtml("You can review your code <b>" + imagePath.getPath() + "</b>"), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), Html.fromHtml("You can review your code here <b>" + imagePath.getPath() + "</b>"), Toast.LENGTH_LONG).show();
         } catch (IOException e) {
             Log.e("GREC", e.getMessage(), e);
             Toast.makeText(getActivity(), Html.fromHtml("Error saving: <b>" + e + "</b>"), Toast.LENGTH_LONG).show();
