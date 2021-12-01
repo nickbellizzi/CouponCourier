@@ -120,18 +120,18 @@ public class UploadFragment extends Fragment {
         ArrayList<String> category = new ArrayList<>();
         category.addAll(categories);
         Collections.sort(category);
-        category.add(0, "-");
+        category.add(0, "Select Category");
 
         ArrayList<String> brand = new ArrayList<>();
         brand.addAll(brands);
         Collections.sort(brand);
-        brand.add(0, "-");
+        brand.add(0, "Select Brand");
 
 
         ArrayList<String> type = new ArrayList<>();
         type.addAll(types);
         Collections.sort(type);
-        type.add(0, "-");
+        type.add(0, "Select Type");
 
 
         String categoriesArray[] = new String[category.size()];
@@ -228,7 +228,7 @@ public class UploadFragment extends Fragment {
 
                         ScrollView scrollView = getView().findViewById(R.id.submission_scroll);
 
-                        if(selectedBrand.equalsIgnoreCase("-")){
+                        if(selectedBrand.equalsIgnoreCase("Select Brand")){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a brand!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
                             dialog.cancel();
                             scrollView.post(new Runnable() {
@@ -244,7 +244,7 @@ public class UploadFragment extends Fragment {
                             return;
                         }
 
-                        if(selectedCategory.equalsIgnoreCase("-")){
+                        if(selectedCategory.equalsIgnoreCase("Select Category")){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a category!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
                             dialog.cancel();
                             scrollView.post(new Runnable() {
@@ -260,7 +260,7 @@ public class UploadFragment extends Fragment {
                             return;
                         }
 
-                        if(selectedType.equalsIgnoreCase("-")){
+                        if(selectedType.equalsIgnoreCase("Select Type")){
                             Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='red'>Please select a type!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
                             dialog.cancel();
                             scrollView.post(new Runnable() {
