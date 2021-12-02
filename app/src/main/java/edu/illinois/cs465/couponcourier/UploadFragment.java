@@ -25,6 +25,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.sql.Array;
 import java.text.SimpleDateFormat;
@@ -203,10 +204,10 @@ public class UploadFragment extends Fragment {
                         Spinner typeSpinner = (Spinner) view.findViewById(R.id.typeSpinner);
                         EditText codePicker = (EditText) view.findViewById(R.id.codeInput);
                         EditText expDatePicker = (EditText) view.findViewById(R.id.expDatePicker);
-                        CheckBox inStoreCheckbox = (CheckBox) view.findViewById(R.id.inStoreCheckbox);
-                        CheckBox onlineCheckbox = (CheckBox) view.findViewById(R.id.onlineCheckbox);
-                        CheckBox militaryIdCheckbox = (CheckBox) view.findViewById(R.id.militaryIdCheckbox);
-                        CheckBox stackedCheckbox = (CheckBox) view.findViewById(R.id.stackedCheckbox);
+                        ToggleButton inStoreCheckbox = (ToggleButton) view.findViewById(R.id.inStoreCheckbox);
+                        ToggleButton onlineCheckbox = (ToggleButton) view.findViewById(R.id.onlineCheckbox);
+                        ToggleButton militaryIdCheckbox = (ToggleButton) view.findViewById(R.id.militaryIdCheckbox);
+                        ToggleButton stackedCheckbox = (ToggleButton) view.findViewById(R.id.stackedCheckbox);
                         EditText additionalInfoPicker = (EditText) view.findViewById(R.id.addInfoInput);
                         EditText productPicker = (EditText) view.findViewById(R.id.productInput);
                         EditText dealPicker = (EditText) view.findViewById(R.id.dealInput);

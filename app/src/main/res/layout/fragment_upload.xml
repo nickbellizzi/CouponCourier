@@ -211,96 +211,68 @@
                             android:textSize="25sp"
                             android:textStyle="bold" />
                     </TableRow>
-
                     <TableRow>
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            app:tint="@color/black"
-                            android:src="@drawable/ic_baseline_storefront_24"/>
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            app:tint="@color/black"
-                            android:src="@drawable/online"/>
-                    </TableRow>
-
-                    <TableRow>
-                        <CheckBox
-                            android:id="@+id/inStoreCheckbox"
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="47dp"
-                            android:text="@string/inStoreCheckbox"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-                        <CheckBox
-                            android:id="@+id/onlineCheckbox"
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="47dp"
-                            android:text="@string/onlineCheckbox"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+                            <ToggleButton
+                                android:id="@+id/inStoreCheckbox"
+                                android:layout_width="0dp"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/togglebutton_selector"
+                                android:layout_centerHorizontal="true"
+                                android:checked="false"
+                                android:drawableTop="@drawable/instore_40"
+                                android:textColor="#000"
+                                android:textOff="@string/inStoreCheckbox"
+                                android:textOn="@string/inStoreCheckbox" />
+                            <ToggleButton
+                                android:id="@+id/onlineCheckbox"
+                                android:layout_width="0dp"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/togglebutton_selector"
+                                android:layout_centerHorizontal="true"
+                                android:checked="false"
+                                android:drawableTop="@drawable/online_40"
+                                android:textColor="#000"
+                                android:textOff="@string/onlineCheckbox"
+                                android:textOn="@string/onlineCheckbox" />
+                        </LinearLayout>
                     </TableRow>
                     <TableRow>
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            app:tint="@color/black"
-                            android:src="@drawable/ic_baseline_military_tech_24"/>
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            app:tint="@color/black"
-                            android:src="@drawable/stackable"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+                            <ToggleButton
+                                android:id="@+id/stackedCheckbox"
+                                android:layout_width="0dp"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/togglebutton_selector"
+                                android:layout_centerHorizontal="true"
+                                android:checked="false"
+                                android:drawableTop="@drawable/stackable_40"
+                                android:textColor="#000"
+                                android:textOff="@string/stackableCheckbox"
+                                android:textOn="@string/stackableCheckbox" />
+                            <ToggleButton
+                                android:id="@+id/militaryIdCheckbox"
+                                android:layout_width="0dp"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/togglebutton_selector"
+                                android:layout_centerHorizontal="true"
+                                android:checked="false"
+                                android:drawableTop="@drawable/military_40"
+                                android:textColor="@color/black"
+                                android:textOff="@string/militaryIdCheckbox"
+                                android:textOn="@string/militaryIdCheckbox" />
+                        </LinearLayout>
                     </TableRow>
-
-                    <TableRow>
-                        <CheckBox
-                            android:id="@+id/militaryIdCheckbox"
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="47dp"
-                            android:text="@string/militaryIdCheckbox"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                        <CheckBox
-                            android:id="@+id/stackedCheckbox"
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="47dp"
-                            android:text="@string/stackableCheckbox"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                    </TableRow>
-
                     <TableRow>
                         <TextView
                             android:layout_width="0dp"
