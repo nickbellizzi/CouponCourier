@@ -361,7 +361,7 @@ public class UploadFragment extends Fragment {
                             return;
                         }
 
-                        Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='green'>Successfully uploaded coupon!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
+                        Toast.makeText(mActivity, HtmlCompat.fromHtml("<font color='#009f10'>Successfully uploaded coupon!</font>", HtmlCompat.FROM_HTML_MODE_LEGACY), Toast.LENGTH_LONG).show();
 //                        Toast.makeText(getContext(), "Successfully uploaded coupon!", Toast.LENGTH_LONG).show();
 
                         brandSpinner.setSelection(0);
